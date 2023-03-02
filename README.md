@@ -5,4 +5,4 @@ Kelompok 2W1P\
 Ketua Kelompok:\
 Anggota 1:\
 Anggota 2:\
-Anggota 3:
+Anggota 3: Natasha Astia Dewanti - 20/463610/TK/51602
