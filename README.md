@@ -4,5 +4,5 @@ Web-based application that can determine the user's learning style and optimize 
 Kelompok 2W1P\
 Ketua Kelompok:\
 Anggota 1:\
-Anggota 2:\
+Anggota 2: Fajar Rizky Widodo-20/463599/463599TK/51591\
 Anggota 3:
