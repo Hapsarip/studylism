@@ -7,7 +7,7 @@
 * Anggota 3: Natasha Astia Dewanti - 20/463610/TK/51602
 
 ### Project Senior Project TI
-Departemen Teknologi Elektro dan Teknologi Informasi, Fakultas Teknik, Universitas Gadjah Mada\
+Departemen Teknologi Elektro dan Teknologi Informasi, Fakultas Teknik, Universitas Gadjah Mada
 
 ### Nama Produk
 Studylism
@@ -25,8 +25,8 @@ Aplikasi berbasis web yang dapat menentukan gaya belajar pengguna dan mengoptima
 
 ### Analisis Kompetitor:
 Kompetitor 1\
-![Kompetitor 1](https://github.com/Hapsarip/studylism/blob/main/img/kompetitor-1.png?raw=true)\
+![Kompetitor 1](https://github.com/Hapsarip/studylism/blob/main/src/img/kompetitor-1.png?raw=true)\
 Kompetitor 2\
-![Kompetitor 2](https://github.com/Hapsarip/studylism/blob/main/img/kompetitor-2.png?raw=true)\
+![Kompetitor 2](https://github.com/Hapsarip/studylism/blob/main/src/img/kompetitor-2.png?raw=true)\
 Kompetitor 3\
-![Kompetitor 3](https://github.com/Hapsarip/studylism/blob/main/img/kompetitor-3.png?raw=true)
+![Kompetitor 3](https://github.com/Hapsarip/studylism/blob/main/src/img/kompetitor-3.png?raw=true)
