@@ -55,6 +55,14 @@ Kebutuhan :
 ![ERD](https://github.com/Hapsarip/studylism/blob/main/src/img/erd.jpg?raw=true)
 
 ### Low-Fidelity Wireframe
+Landing Page\
+![Landing Page](https://github.com/Hapsarip/studylism/blob/main/src/img/lo-fi-landing-page.jpg?raw=true)\
+Sign-up Page\
+![Sign-up Page](https://github.com/Hapsarip/studylism/blob/main/src/img/lo-fi-signup-page.jpg?raw=true)\
+Login Page\
+![Login Page](https://github.com/Hapsarip/studylism/blob/main/src/img/lo-fi-login-page.jpg?raw=true)\
+Dashboard Page\
+![Dashboard Page](https://github.com/Hapsarip/studylism/blob/main/src/img/lo-fi-dashboard-page.jpg?raw=true)
 
 ### Gantt Chart
 ![Gantt Chart](https://github.com/Hapsarip/studylism/blob/main/src/img/gantt-chart.png?raw=true)
