@@ -24,9 +24,9 @@ Maka dari itu, kami mengusulkan solusi berupa aplikasi berbasis web yang dapat m
 Aplikasi berbasis web yang dapat menentukan gaya belajar pengguna dan mengoptimalkannya
 
 ### Analisis Kompetitor:
-Kompetitor 1
+Kompetitor 1\
 ![Kompetitor 1](https://github.com/Hapsarip/studylism/blob/main/img/kompetitor-1.png?raw=true)
-Kompetitor 2
+Kompetitor 2\
 ![Kompetitor 2](https://github.com/Hapsarip/studylism/blob/main/img/kompetitor-2.png?raw=true)
-Kompetitor 3
+Kompetitor 3\
 ![Kompetitor 3](https://github.com/Hapsarip/studylism/blob/main/img/kompetitor-3.png?raw=true)
