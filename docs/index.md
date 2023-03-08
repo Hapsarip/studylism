@@ -30,3 +30,31 @@ Kompetitor 2\
 ![Kompetitor 2](https://github.com/Hapsarip/studylism/blob/main/src/img/kompetitor-2.png?raw=true)\
 Kompetitor 3\
 ![Kompetitor 3](https://github.com/Hapsarip/studylism/blob/main/src/img/kompetitor-3.png?raw=true)
+
+### Tujuan Produk
+1. Membantu pengguna dalam menentukan gaya belajarnya sehingga proses dan hasil belajar dapat lebih optimal
+2. Memberikan rekomendasi strategi belajar berdasarkan hasil tes gaya belajar pengguna agar proses belajar lebih efektif dan efisien 
+3. Memberikan report progress belajar pengguna agar dapat mengukur tingkat dan proses belajar mereka, apakah sesuai dengan target, sehingga dapat dimanfaatkan untuk meningkatkan frekuensi dan kualitas pembelajaran pengguna
+
+### Pengguna Potensial dan Kebutuhannya
+Pengguna Potensial : Pelajar (Tingkat Menengah Pertama (SMP), Menengah Atas (SMA), dan Perguruan Tinggi (Mahasiswa))\
+Kebutuhan : 
+* Kesiapan belajar 
+* Model dan cara belajar 
+* Pengetahuan diri 
+* Minat siswa 
+* Profil atau progress belajar
+
+### Use Case Diagram
+![Use Case](https://github.com/Hapsarip/studylism/blob/main/src/img/use-case.png?raw=true)
+
+### Functional Requirements
+![Functional Requirements](https://github.com/Hapsarip/studylism/blob/main/src/img/functional-req.png?raw=true)
+
+### Entity Relationship Diagram
+![ERD](https://github.com/Hapsarip/studylism/blob/main/src/img/erd.jpg?raw=true)
+
+### Low-Fidelity Wireframe
+
+### Gantt Chart
+![Gantt Chart](https://github.com/Hapsarip/studylism/blob/main/src/img/gantt-chart.png?raw=true)
