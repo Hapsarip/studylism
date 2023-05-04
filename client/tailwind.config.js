@@ -12,6 +12,7 @@ module.exports = {
     },
     colors: {
       'blue':'#377DC3',
+      'bluelight':'#A6D4FF',
       'purple': '#7e5bef',
       'pink': '#ff49db',
       'orange': '#ff7849',
@@ -23,7 +24,7 @@ module.exports = {
       'white':'#ffffff'
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
+      sans: ['Segoe UI', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
     },
     extend: {
