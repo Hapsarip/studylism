@@ -3,7 +3,7 @@ import CoolGuy from "../../assets/CoolGuy.png"
 
 const features = () => {
     return (
-        <div className="bg-gradient-to-r from-blue to-purple h-screen w-full">
+        <div className="bg-gradient-to-r from-blue to-bluelight h-screen w-full">
             <div className="text-center text-4xl font-bold text-white">
                 Our Features
             </div>
@@ -20,7 +20,7 @@ const features = () => {
                     </div>
                 </div>
                 <div className="mx-10 basis-1/2">
-                    <div className="place-items-center">
+                    <div className="justify-center">
                         <img src={CoolGuy} alt="Illustration"/>
                     </div>
                 </div>
