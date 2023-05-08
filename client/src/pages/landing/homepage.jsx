@@ -6,7 +6,7 @@ import Vector from "../../assets/Vector.png"
 function Homepage () {
     return (
         <div className="bg-white h-screen w-full overflow-hidden">
-            <div className="flex justify-between items-center bg-gradient-to-r from-blue to-purple rounded-b-lg">
+            <div className="flex justify-between items-center bg-gradient-to-r from-blue to-bluelight rounded-b-lg">
                 <div className="flex text-white justify-between font-bold text-4xl ml-10 my-10">
                     <div>
                         <img src={Vector} alt="Logo" />
@@ -54,7 +54,7 @@ function Homepage () {
                     </div>
                 </div>
             </div>
-            <div className="items-center bg-gradient-to-r from-blue to-purple rounded-t-lg h-screen justify-between">
+            <div className="items-center bg-gradient-to-r from-blue to-bluelight rounded-t-lg h-screen justify-between">
                 <div className="text-white font-medium text-2px text-center mt-2 pt-5">
                     View More
                 </div>
