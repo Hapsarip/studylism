@@ -116,8 +116,6 @@ router.delete('/delete', async (req, res) => {
     }
 });
 
-export { router as userRouter }
-
 export const verifyToken = (req, res, next) => {
     const token = req.header.authorization // TODO: add authorization header inside every request
     if (token) {
@@ -130,6 +128,6 @@ export const verifyToken = (req, res, next) => {
     }
 }
 
-
+export { router as userRouter }
 
 
