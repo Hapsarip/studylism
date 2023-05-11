@@ -35,7 +35,7 @@ function checkMonth (month) {
             // Pass the month value to the next middleware or route handler
             req.month = monthValue;
             next();
-        } else {
+        } else { 
             // Send an error response if the month value is invalid
             res.status(400).send('Invalid month');
         }
