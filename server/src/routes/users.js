@@ -14,7 +14,7 @@ router.post("/register", async (req, res) => {
         const user = await UserModel.findOne({ email });
 
         if (user) {
-            return res.json({ message: "Your email has been registered. Please sign in instead." });
+            return res.status(400).json({ message: "Your email has been registered. Please sign in instead." });
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
         const newUser = new UserModel({ email, password: hashedPassword, name, learningStyle });
         await newUser.save();
 
-        res.json({ message: "User registered sucessfully" });
+        res.status(201).json({ message: "User registered sucessfully" });
     } catch (err) {
         console.error(err);
     }
@@ -35,13 +35,13 @@ router.post("/login", async (req, res) => {
     const user = await UserModel.findOne({ email });
 
     if (!user) {
-        return res.json({ message: "email or password is incorect" }); // limiting info
+        return res.status(404).json({ message: "email or password is incorect" }); // limiting info
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password); // compare and check
 
     if (!isPasswordValid) {
-        return res.json({ message: "email or password is incorrect" });
+        return res.status(404).json({ message: "email or password is incorrect" });
     }
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET); // TODO: make sure the dotenv variable works
