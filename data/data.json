@@ -1,0 +1,98 @@
+[
+    {
+      "text": "I can remember best by listening to a lecture that includes information, explanations and discussions",
+      "category": "auditory"
+    },
+    {
+      "text": "I prefer to see information written on the board and supplemented by visual aids and assigned readings",
+      "category": "visual"
+    },
+    {
+      "text": "I like to write things down or take notes for visual review",
+      "category": "visual"
+    },
+    {
+      "text": "I prefer to use posters, models, or actual practice and other activities in class",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "I require explanations of diagrams, graphs, or visual directions",
+      "category": "auditory"
+    },
+    {
+      "text": "I enjoy working with my hands or making things",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "I am skillful with and enjoy developing making graphs and charts",
+      "category": "visual"
+    },
+    {
+      "text": "I can tell if sounds match when presented with pairs of sounds.",
+      "category": "auditory"
+    },
+    {
+      "text": "I can remember best by writing things down several times",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "I can easily understand and follow directions on a map",
+      "category": "visual"
+    },
+    {
+      "text": "I do best in academic subjects by listening to lectures and tapes",
+      "category": "auditory"
+    },
+    {
+      "text": "I play with coins or keys in my pocket",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "I learn to spell better by repeating words out loud than by writing the words on paper",
+      "category": "auditory"
+    },
+    {
+      "text": "I can understand a news article better by reading about it in the newspaper or online rather than by listening to a report about it on the radio or internet.",
+      "category": "visual"
+    },
+    {
+      "text": "I chew gum, smoke or snack while studying",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "I think the best way to remember something is to picture it in my mind",
+      "category": "visual"
+    },
+    {
+      "text": "I learn the spelling of words by “finger spelling” them",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "I would rather listen to a good lecture or speech than read about the same material",
+      "category": "auditory"
+    },
+    {
+      "text": "I am good at working and solving jigsaw puzzles and mazes",
+      "category": "visual"
+    },
+    {
+      "text": "I grip objects in my hands during learning periods",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "I prefer listening to the news on the radio or online rather than reading about it in a newspaper or on the internet",
+      "category": "auditory"
+    },
+    {
+      "text": "I prefer obtaining information about an interesting subject by reading about it",
+      "category": "visual"
+    },
+    {
+      "text": "I feel very comfortable touching others hugging, handshaking, etc",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "I follow oral directions better than written ones",
+      "category": "auditory"
+    }
+  ]
