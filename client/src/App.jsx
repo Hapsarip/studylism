@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import Landing from "./pages/Landing"
+import Jurnal from "./pages/Jurnal"
 import "./index.css";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/jurnal" element={<Jurnal />} />
       </Routes>
     </>
   )

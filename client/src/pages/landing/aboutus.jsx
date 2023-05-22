@@ -1,7 +1,4 @@
 import React from "react"
-import landing from "../../assets/landing.svg"
-import CaretDown from "../../assets/CaretDown.png"
-import Vector from "../../assets/Vector.png"
 
 function AboutUs () {
     return (
