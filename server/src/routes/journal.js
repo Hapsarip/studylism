@@ -35,40 +35,88 @@ function checkMonth (month) {
             // Pass the month value to the next middleware or route handler
             req.month = monthValue;
             next();
-        } else {
+        } else { 
             // Send an error response if the month value is invalid
             res.status(400).send('Invalid month');
         }
     }
 };
   
-// Use the middleware function in a route
-router.get('/:year/:month', checkMonth('month'), async (req, res) => {
-    // Do something with req.month
-    // res.send('The month is ' + req.month + ' and the year is ' + req.params.year); // TODO: buat supaya mengambil jurnal berdasar userId, bulan, dan tahun
-    
-    const uri = process.env.RESTSTUDYLISM_DB_URI;
+function pickDesiredJournalByMonth(jsonFromRes, month, year) {
+    const desiredMonth = month;
+    const desiredYear = year;
+    const jsonToBeInspected = jsonFromRes;
+    let result = [];
+    for (let doc in jsonToBeInspected) {
+        const dateFromJson = new Date(jsonToBeInspected[doc].date);
+        const yearFromJson = dateFromJson.getFullYear();
+        const monthFromJson = dateFromJson.getMonth() + 1;
+        if(yearFromJson == desiredYear && monthFromJson == desiredMonth) {
+            result.push(jsonToBeInspected[doc]);
+        }
+    }
+    return result;
+};
 
-    // Create a new MongoClient
-    const client = new MongoClient(uri);
-    // Get the database and collection
-    const database = client.db("Cluster0");
-    const collection = database.collection("journals");
+function pickDesiredJournalByDay(jsonFromRes, day, month, year) {
+    const desiredDay = day;
+    const desiredMonth = month;
+    const desiredYear = year;
+    const jsonToBeInspected = jsonFromRes;
+    let result = [];
+    for (let doc in jsonToBeInspected) {
+        const dateFromJson = new Date(jsonToBeInspected[doc].date);
+        const yearFromJson = dateFromJson.getFullYear();
+        const monthFromJson = dateFromJson.getMonth() + 1;
+        const dayFromJson = dateFromJson.getDate();
+        if(yearFromJson == desiredYear && monthFromJson == desiredMonth && dayFromJson == desiredDay) {
+            result.push(jsonToBeInspected[doc]);
+        }
+    }
+    return result;
+};
 
-    // Query for documents that have a date field in January 2023
-    const query = { 
-    date: { 
-        $gte: new Date(req.params.year, req.params.month-1, 2), 
-        $lt: new Date(req.params.year, req.params.month) 
-    }};
+function calculateProgress(pickedJson) {
+    const jsonToBeInspected = pickedJson;
+    let journalDone = 0;
+    let numberOfDoc = 0;
+    for (let doc in jsonToBeInspected) {
+        if (jsonToBeInspected[doc].status == 3) {
+            journalDone++;
+        }
+    numberOfDoc++;
+    }
+    const result = journalDone / numberOfDoc;
+    return result;
+}
 
-    // Find the documents that match the query
-    const response = collection.find(query);
-    res.json(response);
+// router.get('/:year/:month', checkMonth('month'), async (req, res) => {
+//     try {
+//         const ObjectId = mongodb.ObjectId;
+//         const id = req.body._id;
+//         const filter = { userId: new ObjectId(id) };
+//         const response = await JournalModel.find(filter);
+//         const result = pickDesiredJournalByMonth(response, req.params.month, req.params.year);
+//         res.json(result);
+//     } catch (err) {
+//         console.error(err);
+//     }
+// });
 
-    // const a = new Date(req.params.year, req.params.month);
-    // const b = new Date(req.params.year, req.params.month-1, 2);
-    // res.json(query);
+router.get('/:year/:month/:day', checkMonth('month'), async (req, res) => {
+    try {
+        const ObjectId = mongodb.ObjectId;
+        const id = req.body._id;
+        const filter = { userId: new ObjectId(id) };
+        const response = await JournalModel.find(filter);
+        const resultByMonth = pickDesiredJournalByMonth(response, req.params.month, req.params.year);
+        const resultByDay = pickDesiredJournalByDay(response, req.params.day, req.params.month, req.params.year);
+        const progressByDay = calculateProgress(resultByDay);
+        const result = {resultByMonth, resultByDay, progressByDay};
+        res.json(result);
+    } catch (err) {
+        console.error(err);
+    }
 });
 
 router.put('/edit', async (req, res) => {
@@ -78,8 +126,8 @@ router.put('/edit', async (req, res) => {
         const filter = new ObjectId(id);
         const title = req.body.title;
         const description = req.body.description;
-        const status = req.body.status
-        const update = { title, description, status }
+        const status = req.body.status;
+        const update = { title, description, status };
         const response = await JournalModel.findOneAndUpdate(filter, update, {new : true});
         res.json(response);
     } catch (err) {
