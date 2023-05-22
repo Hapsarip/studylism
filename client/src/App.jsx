@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom"
-import Landing from "./pages/Landing"
-import Jurnal from "./pages/Jurnal"
-import Landing from "./pages/Landing"
+import Jurnal from "./pages/Jurnal.jsx"
+import Landing from "./pages/Landing.jsx"
 import IntroTest from "./pages/Intro-Test.jsx";
 import Test from "./pages/Test.jsx"
 import Login from "./pages/Login.jsx"
