@@ -1,24 +1,47 @@
 import React, { useState } from 'react';
 // import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import { axiosInstance, toastifyConfig, URI } from "../component/component-config";
+import "react-toastify/dist/ReactToastify.css"
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [_, setCookies] = useCookies(["access_token"])
+    const navigate = useNavigate(); // get the navigate function
     
-    // const navigate = useNavigate(); // get the navigate function
     const onSubmit = async (event) => {
         event.preventDefault();
-        try {
-            await axios.post('http://localhost:3001/auth/login', { email, password });
-            // navigate("/login");
+        // try {
+        //     const response = await axios.post('http://localhost:3001/auth/login', { email, password });
+        //     setCookies("access_token", response.data.token);
+        //     window.localStorage.setItem("userID", response.data.userID);
+        //     navigate("/");
+        // } catch (err) {
+        //     console.error(err);
+        // }
+        try{
+            const res = await axiosInstance.post("http://localhost:3001/auth/login",  
+                {
+                    email: email,
+                    password: password
+                })
+            console.log(res.data.message);
+            toast(res.data.message);
+            navigate("/")
+            
         } catch (err) {
-            console.error(err);
+            console.error(err.response.data.message);
+            toast.error(err.response.data.message)
         }
     };
     
     return(
         <div className='signup-container'>
+            <ToastContainer />
             <div className='grid h-screen place-items-center'>
                 <div className='flex flex-col'>
                     <div className='flex flex-row justify-center'>
