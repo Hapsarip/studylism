@@ -23,7 +23,8 @@ module.exports = {
       'gray-dark': '#273444',
       'gray': '#d9d9d9',
       'gray-light': '#d3dce6',
-      'white':'#ffffff'
+      'white':'#ffffff',
+      'black':'#000000',
     },
     fontFamily: {
       sans: ['Segoe UI', 'sans-serif'],
