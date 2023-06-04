@@ -72,12 +72,12 @@ export default function Login() {
                                     onChange={(event) => setPassword(event.target.value)}></input>
                             </div>
                             <div className='flex flex-row justify-center m-5'>
-                                <button type='submit' className='w-40 bg-yellow p-2 rounded-full text-white'>
+                                <button type='submit' className='w-40 bg-yellow p-2 rounded-full text-white hover:text-black'>
                                     Login
                                 </button>
                             </div>
                             <div className='flex flex-row justify-center text-white'>
-                                <p>Don't have an account? <a href='/signup'><u>Sign Up</u></a> here</p>
+                                <p>Don't have an account? <a href='/signup'><u className='hover:text-black'>Sign Up</u></a> here</p>
                             </div>
                         </form>
                     </div>

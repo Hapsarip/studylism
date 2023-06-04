@@ -18,23 +18,37 @@ function Homepage () {
                 <div>
                     <div className="font-semibold flex justify-between text-lg space-x-14">
                         <div className="flex text-white p-2 text-lg space-x-14">
+                            <a href="/" className="hover:text-[#263238]">
                             <button>
                                 Home
                             </button>
+                            </a>
+                            <a href="#section-2"
+                            className="hover:text-[#263238]"
+                            to="features">
                             <button>
                                 Features
                             </button>
+                            </a>
+                            <a href="#section-3"
+                            className="hover:text-[#263238]"
+                            to="aboutus">
                             <button>
                                 About Us
                             </button>
+                            </a>
                         </div>
                         <div className="text-black flex space-x-14 px-10">
-                            <button className="bg-yellow px-3 py-2 rounded-lg">
-                                Login
-                            </button>
-                            <button className="bg-yellow px-3 py-2 rounded-lg">
-                                Sign Up
-                            </button>
+                            <a href='/login'>
+                                <button className="bg-yellow px-3 py-2 rounded-lg hover:text-white">
+                                    Login
+                                </button>
+                            </a>
+                            <a href='/signup'>
+                                <button className="bg-yellow px-3 py-2 rounded-lg hover:text-white">
+                                    Sign Up
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -48,9 +62,11 @@ function Homepage () {
                         A web based application that can determine your learning style and optimize it
                     </div>
                     <div className="flex justify-center my-5 items-center">
-                        <button class="bg-yellow justify-center font-medium py-3 px-7 rounded-lg text-xl">
+                        <a href='/signup'>
+                        <button class="bg-yellow justify-center font-medium py-3 px-7 rounded-lg text-xl hover:text-white">
                             Get Started
                         </button>
+                        </a>
                     </div>
                 </div>
             </div>
