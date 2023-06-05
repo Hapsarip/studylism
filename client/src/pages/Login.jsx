@@ -30,6 +30,8 @@ export default function Login() {
                     password: password
                 })
             console.log(res.data.message);
+            setCookies("access_token", res.data.token);
+            window.localStorage.setItem("userID", res.data.userID);
             toast(res.data.message);
             navigate("/")
             
