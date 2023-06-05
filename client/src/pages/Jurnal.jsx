@@ -5,6 +5,7 @@ import cn from "../component/cn";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { AiOutlinePlus } from "react-icons/ai";
 import AddJurnal from "../component/addjurnal";
+import Navbar from "../component/navbar";
 
 export default function Jurnal() {
     console.log(generateDate());
@@ -19,7 +20,7 @@ export default function Jurnal() {
         console.log(data)
     }
     return (
-    <div className="flex w-1/2 mx-auto divide-x-2 gap-10 h-screen items-center">
+    <div className="flex w-1/2 mx-auto divide-x-2 gap-10 h-screen pt-20 items-center">
         <div className="w-96 h-96">
             <div className="flex justify-between">
                 <h1 className="font-semibold">
