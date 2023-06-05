@@ -45,7 +45,7 @@ router.post("/login", async (req, res) => {
     }
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET); // TODO: make sure the dotenv variable works
-    res.json({ token, userID: user._id });
+    res.json({ token, userID: user._id, name: user.name, learningStyle: user.learningStyle });
 });
 
 router.put('/edit_name', async (req, res) => {
