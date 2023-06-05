@@ -29,7 +29,7 @@ export default function Login() {
                     email: email,
                     password: password
                 })
-            console.log(res.data.message);
+            console.log(res.data.userID);
             setCookies("access_token", res.data.token);
             window.localStorage.setItem("userID", res.data.userID);
             toast(res.data.message);
