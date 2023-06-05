@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
     const user = await UserModel.findOne({ email });
 
     if (!user) {
-        return res.status(404).json({ message: "Email or password is incorect." }); // limiting info
+        return res.status(404).json({ message: "Email or password is incorrect." }); // limiting info
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password); // compare and check
@@ -73,7 +73,7 @@ router.put('/edit_password', async (req, res) => {
         const update = { password: hashedPassword };
         const response = await UserModel.findOneAndUpdate(filter, update, { new: true });
         const updatedPassword = response.password
-        res.json({ updatedPassword });;
+        res.json({ updatedPassword });; // TODO: Hapus atau comment
     } catch (err) {
         console.log(err);
     }

@@ -14,37 +14,6 @@ export default function SignUp() {
     
     const onSubmit = async (event) => {
         event.preventDefault();
-        // try {
-        //     const response = await axios.post('http://localhost:3001/auth/register', { name, email, password });
-        //     console.log(response); // TODO: Don't forget to comment this line
-        //     // console.log(response.status);
-        //     // if(response.status==201){
-        //     //     alert(response.data.message)
-        //     //     navigate("/login");
-        //     // } else if(response.status==401) {
-        //     //     alert("wadidwa")
-        //     // }
-        //     axios.interceptors.response.use(function (response) {
-        //         // Any status code that lie within the range of 2xx cause this function to trigger
-        //         // Do something with response data
-        //         if(response.status==201){
-        //             alert(response.data.message)
-        //             //     navigate("/login")
-        //         }
-        //         return response;
-        //       }, function (error) {
-        //         // **** Any status codes that falls outside the range of 2xx cause this function to trigger **** <====
-        //         // Do something with response error
-        //         if(error.response.status==401){
-        //                 alert(error.response.data.message)
-        //                 toast.error(error.response.data.error, toastifyConfig)
-        //             //     navigate("/login")
-        //         }
-        //         return Promise.reject(error);
-        //       });
-        // } catch (err) {
-        //     console.error(err);
-        // }
         try{
             const res = await axiosInstance.post("http://localhost:3001/auth/register",  
                 {
@@ -55,7 +24,6 @@ export default function SignUp() {
             console.log(res.data.message);
             toast(res.data.message);
             navigate("/login")
-            
         } catch (err) {
             console.error(err.response.data.message);
             toast.error(err.response.data.message)

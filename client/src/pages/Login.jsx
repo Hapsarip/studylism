@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
@@ -15,14 +14,6 @@ export default function Login() {
     
     const onSubmit = async (event) => {
         event.preventDefault();
-        // try {
-        //     const response = await axios.post('http://localhost:3001/auth/login', { email, password });
-        //     setCookies("access_token", response.data.token);
-        //     window.localStorage.setItem("userID", response.data.userID);
-        //     navigate("/");
-        // } catch (err) {
-        //     console.error(err);
-        // }
         try{
             const res = await axiosInstance.post("http://localhost:3001/auth/login",  
                 {
@@ -32,7 +23,6 @@ export default function Login() {
             console.log(res.data.message);
             toast(res.data.message);
             navigate("/")
-            
         } catch (err) {
             console.error(err.response.data.message);
             toast.error(err.response.data.message)
