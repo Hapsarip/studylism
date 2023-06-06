@@ -1,9 +1,12 @@
 import React from 'react'
 import Test from '../assets/test.png'
+import Navbar from '../component/navbar'
 
 export default function IntroTest(){
     return (
-        <div className="flex justify-center items-center w-full h-screen px-[80px]">
+        <div>
+            <Navbar/>
+        <div className="flex justify-center items-center w-full h-screen pl-[200px] pt-[120px]">
             
             <div className='grid grid-cols-1 w-full flex items-center justify-center lg:w-3/5 mr-5'>
                 
@@ -17,6 +20,7 @@ export default function IntroTest(){
             <div className="hidden lg:flex h-full w-2/5 items-center justify-center">
                 <img class="justify-center items-center mx-10 mt-10" src={Test} alt="bgImg"/>
             </div>
+        </div>
         </div>
     )
 }
