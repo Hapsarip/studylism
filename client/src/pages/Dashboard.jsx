@@ -10,9 +10,9 @@ function Dashboard () {
                 <Navbar></Navbar>
                 <main>
                 <div className="flex pt-60">
-                <div className="text-8xl flex-col space-y-40 my-300 ml-[300px] font-medium h-60 w-3/5 px-5 py-5 rounded-lg"> 
-                    <p className="text-6xl text-left  h-[16px] py-1">Welcome, Name</p>
-                    <p className="text-4xl text-left  h-[16px] py-1">
+                <div className="text-4xl flex-col space-y-40 my-300 ml-[300px] font-medium h-60 w-3/5 px-5 py-5 rounded-lg"> 
+                    <p className="text-3xl text-left  h-[16px] py-1">Welcome, Name</p>
+                    <p className="text-2xl text-left  h-[16px] py-1">
                         Sudah tahu gaya belajarmu?<br />
                         Cek gaya belajarmu dengan ikut test gaya belajar, yuk!<br />
                     </p>

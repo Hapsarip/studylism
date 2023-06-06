@@ -44,12 +44,12 @@ const navbar = () => {
                 </div>
             </div>
         </div>
-        <div className="fixed w-full flex justify-between items-center bg-gradient-to-r from-blue to-bluelight rounded-b-lg">
-            <div className="flex text-white justify-between font-bold text-4xl ml-10 my-10">
+        <div className="h-1/8 fixed w-full flex justify-between items-center bg-gradient-to-r from-blue to-bluelight rounded-b-lg">
+            <div className="flex text-white justify-between font-bold text-3xl ml-10 my-5">
                 <div>
-                    <img src={Vector} alt="Logo" />
+                    <img src={Vector} alt="Logo" className="scale-50" />
                 </div>
-                <div className="mt-1 ml-5">
+                <div className="mt-1 ml-1">
                     Studylism
                 </div>
             </div>
