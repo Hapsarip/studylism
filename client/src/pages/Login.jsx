@@ -37,7 +37,7 @@ export default function Login() {
             window.localStorage.setItem("name", res.data.name);
             window.localStorage.setItem("learningStyle", res.data.learningStyle);
             toast(res.data.message);
-            navigate("/")
+            navigate("/dashboard")
             
         } catch (err) {
             console.error(err.response.data.message);

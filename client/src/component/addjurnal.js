@@ -6,26 +6,40 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { axiosInstance, toastifyConfig, URI } from "../component/component-config";
 import "react-toastify/dist/ReactToastify.css";
+import { use } from "react";
 
 
 export default function AddJurnal({visible, onClose}) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [status, setStatus]=useState(true);
+    const [status, setStatus]=useState(false);
     const currentDate = dayjs();
     const [selectDate, setSelectDate] = useState(currentDate);
+	//Task status digunakan sebagai penanda apakah tugas sudah selesai dikerjakan atau belum. 1=belum. 3=sudah.
+    const [taskStatus, setTaskStatus] = useState(1);
     const [userId, setUserId] = useState("UserId");
-    useEffect(() => {
-        setUserId("647c68e95b1c5b35f5f1009f");
-      }, []); // Run only once on mount
-    const navigate = useNavigate();
-    const handleChange=(data)=>{
-        console.log(data)
+    
+	useEffect(() => {
+        setUserId(localStorage.getItem("userID"));
+		console.log(status);
+        if(status){
+          	setTaskStatus(3);
+        } else {
+          	setTaskStatus(1);
+        }
+    }, [status]);
+    
+	const navigate = useNavigate();
+
+    const handleChange=()=>{
+        setStatus(!status);
     }
     if (!visible) return null;
+
     const handleOnClose = (e) => {
         if(e.target.id === "container") onClose();
     };
+
     const onSubmit = async (event) => {
         event.preventDefault();
         // try {
@@ -42,13 +56,11 @@ export default function AddJurnal({visible, onClose}) {
                     title: title,
                     description: description,
                     date: selectDate,
-                    status: status,
+                    status: taskStatus,
                     userId: userId
                 })
             console.log(res.data.message);
             toast(res.data.message);
-            navigate("/")
-            
         } catch (err) {
             console.error(err.response.data.message);
             toast.error(err.response.data.message)
@@ -56,9 +68,9 @@ export default function AddJurnal({visible, onClose}) {
     };
     return (
     <div
-    onClick={handleOnClose}
-    id="container"
-    className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center"
+		onClick={handleOnClose}
+		id="container"
+		className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center"
     >
     <ToastContainer/>
         <form onSubmit={onSubmit} className="bg-gradient-to-r from-blue to-bluelight p-5 rounded-lg w-[22rem] h-[28rem] flex flex-col">
@@ -96,7 +108,7 @@ export default function AddJurnal({visible, onClose}) {
             </div>
         </div>
         <div>
-        <input type="checkbox" value={status} onChange={() => handleChange("2")} className="mr-3 mt-4 accent-yellow"/> 
+        <input type="checkbox" value={status} onChange={() => handleChange()} className="mr-3 mt-4 accent-yellow"/> 
             Mark as Done
         </div>
 
