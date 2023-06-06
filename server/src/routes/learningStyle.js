@@ -25,28 +25,13 @@ router.get("/all", async (req, res) => { // TODO: Erase this function.
 
 router.get("/:id", async (req, res) => {
     try {
-        // const ObjectId = mongodb.ObjectId;
-        // const id = req.body._id;
-        // const filter = { userId: new ObjectId(id) };
-        // const response = await JournalModel.find(filter);
-        // const resultByMonth = pickDesiredJournalByMonth(response, req.params.month, req.params.year);
-        // const resultByDay = pickDesiredJournalByDay(response, req.params.day, req.params.month, req.params.year);
-        // const progressByDay = calculateProgress(resultByDay);
-        // const result = {resultByMonth, resultByDay, progressByDay};
         const index = parseInt(req.params.id);
         const filter = { index: index };
         const response = await LearningStyleModel.findOne(filter);
-
         res.json(response);
     } catch (err) {
         console.error(err);
     }
 });
-
-// router.post("/add", async (req,res) => {
-//     try {
-        
-//     }
-// })
 
 export { router as learningStyleRouter };
