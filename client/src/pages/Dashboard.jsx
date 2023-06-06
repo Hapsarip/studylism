@@ -1,10 +1,52 @@
-import React from "react";
-import Group48 from "../assets/Group 48.png"
+import Group48 from "../assets/Group 48.png";
 import Navbar from "../component/navbar";
-import Progress_bar from "../component/progress_bar"
-
+import Progress_bar from "../component/progress_bar";
+import React, {useState, useEffect} from 'react';
+import dayjs from "dayjs";
+import axios from 'axios';
 
 function Dashboard () {
+    const currentDate = dayjs();
+    const [progress, setProgress] = useState('');
+    const [selectDate, setSelectDate] = useState(currentDate);
+    const [loading, setLoading] = useState(true);
+    const [userID, setUserID] = useState('');
+    const d = dayjs().date();
+    const m = dayjs().month()+1; //karena range 0-11. 0=januari dan 11=desember.
+    const y = dayjs().year(); 
+
+    useEffect(() => {
+        const id = localStorage.getItem("userID");
+        setUserID(id);
+        (async () => {
+            try {
+                const response = await axios.post("http://localhost:3001/journal/" + y + "/" + m + "/" + d, {
+                    _id: userID
+            });
+            
+            // if (Array.isArray(response.data)) {
+            // // setData(response.data);
+            //     setProgress(response.data.progressByDay);
+            // } else if (typeof response.data === 'object') {
+            // // setData(Object.values(response.data));
+            //     setProgress(Object.values(response.data.progressByDay));
+            // }
+            setProgress(response.data.progressByDay*100)
+            console.log(response.data.progressByDay);
+            // console.log(progress);
+            setLoading(false);
+            } catch (error) {
+              console.error(error);
+              setLoading(false);
+            }
+          })()
+    },[userID, selectDate]);
+
+    useEffect(() => {
+        // lakukan sesuatu dengan progress yang baru
+        console.log(progress);
+    }, [progress]); // array dependensi
+
     return (
                 <div>
                 <Navbar></Navbar>
@@ -24,7 +66,11 @@ function Dashboard () {
                 <div>
                     <p className="text-4xl text-center  h-[16px] py-1">Your Study Progress</p>
                     <div className="px-20">
-                        < Progress_bar bgcolor="lightblue" progress='30'  height={30} />
+                        < Progress_bar 
+                            bgcolor="lightblue" 
+                            progress={loading ? 0 : progress}  
+                            height={30} 
+                        />
                     </div>
                 </div>
                     <div className="flex space-x-10 px-40">

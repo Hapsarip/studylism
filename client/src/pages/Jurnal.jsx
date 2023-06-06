@@ -13,13 +13,15 @@ export default function Jurnal() {
     const currentDate = dayjs();
     const [today, setToday] = useState(currentDate);
     const [selectDate, setSelectDate] = useState(currentDate);
-    const [done,setDone]=useState(true);
+    const [status,setStatus]=useState(true);
     const [showAddJurnal,setShowAddJurnal] = useState(false);
     const handleOnClose = () => setShowAddJurnal(false);
     const handleChange=(data)=>{
         console.log(data)
     }
     return (
+    <div>
+        <Navbar></Navbar>
     <div className="flex w-1/2 mx-auto divide-x-2 gap-10 h-screen pt-20 items-center">
         <div className="w-96 h-96">
             <div className="flex justify-between">
@@ -118,7 +120,7 @@ export default function Jurnal() {
             <div className="h-full w-full flex-cols mt-3">
                 <div className="space-y-4">
                 <div className="h-16 bg-white rounded-lg flex">
-                        <input type="checkbox" value={done} onChange={() => handleChange("done")} className="ml-3 accent-yellow"/> 
+                        <input type="checkbox" value={status} onChange={() => handleChange("status")} className="ml-3 accent-yellow"/> 
                         <div className="items-center flex-col ml-3 mt-2 justify-between">
                             <div className="font-medium">
                                 Tugas Integrasi Aplikasi dan Informasi
@@ -129,7 +131,7 @@ export default function Jurnal() {
                         </div>
                     </div>
                     <div className="h-16 bg-white rounded-lg flex">
-                        <input type="checkbox" value={done} onChange={() => handleChange("done")} className="ml-3 accent-yellow"/> 
+                        <input type="checkbox" value={status} onChange={() => handleChange("status")} className="ml-3 accent-yellow"/> 
                         <div className="items-center flex-col ml-3 mt-2 justify-between">
                             <div className="font-medium">
                                 Tugas Senior Project
@@ -140,7 +142,7 @@ export default function Jurnal() {
                         </div>
                     </div>
                     <div className="h-16 bg-white rounded-lg flex">
-                        <input type="checkbox" value={done} onChange={() => handleChange("done")} className="ml-3 accent-yellow"/> 
+                        <input type="checkbox" value={status} onChange={() => handleChange("status")} className="ml-3 accent-yellow"/> 
                         <div className="items-center flex-col ml-3 mt-2 justify-between">
                             <div className="font-medium">
                                 Tugas Sistem Pendukung Keputusan
@@ -154,6 +156,7 @@ export default function Jurnal() {
             </div>
         </div>
         <AddJurnal onClose={handleOnClose} visible={showAddJurnal}/>
+    </div>
     </div>
     )
 }
