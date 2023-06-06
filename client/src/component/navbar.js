@@ -8,12 +8,13 @@ import { BsPersonCircle } from "react-icons/bs";
 import { AiFillCaretDown } from "react-icons/ai";
 
 const navbar = () => {
+    var Name = localStorage.getItem("name");
     return (
     <div>
         <div className="fixed grid text-center text-white justify-between font-medium h-full bg-blue w-36 items-center pt-20">
             <div className="pl-10 space-y-8">
                 <div>
-                    <a href="/introtest">
+                    <a href="/dashboard">
                         <button className="hover:text-yellow">
                             <img src={Home} alt="home logo" className="scale-50"/>
                             Home
@@ -44,12 +45,12 @@ const navbar = () => {
                 </div>
             </div>
         </div>
-        <div className="fixed w-full flex justify-between items-center bg-gradient-to-r from-blue to-bluelight rounded-b-lg">
-            <div className="flex text-white justify-between font-bold text-4xl ml-10 my-10">
+        <div className="h-1/8 fixed w-full flex justify-between items-center bg-gradient-to-r from-blue to-bluelight rounded-b-lg">
+            <div className="flex text-white justify-between font-bold text-3xl ml-10 my-5">
                 <div>
-                    <img src={Vector} alt="Logo" />
+                    <img src={Vector} alt="Logo" className="scale-50" />
                 </div>
-                <div className="mt-1 ml-5">
+                <div className="mt-1 ml-1">
                     Studylism
                 </div>
             </div>
@@ -58,7 +59,7 @@ const navbar = () => {
                     <div className="text-black flex space-x-14 px-10">
                         <button className="bg-yellow flex items-center gap-3 px-3 py-2 rounded-lg text-white">
                             <BsPersonCircle/>
-                            Nama
+                            {Name}
                             <AiFillCaretDown/>
                         </button>
                     </div>

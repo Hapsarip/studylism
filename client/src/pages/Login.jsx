@@ -29,11 +29,15 @@ export default function Login() {
                     email: email,
                     password: password
                 })
-            console.log(res.data.message);
+            console.log(res.data.userID);
+            console.log(res.data.name);
+            console.log(res.data.learningStyle);
             setCookies("access_token", res.data.token);
             window.localStorage.setItem("userID", res.data.userID);
+            window.localStorage.setItem("name", res.data.name);
+            window.localStorage.setItem("learningStyle", res.data.learningStyle);
             toast(res.data.message);
-            navigate("/")
+            navigate("/dashboard")
             
         } catch (err) {
             console.error(err.response.data.message);

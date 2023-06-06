@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 
 import { userRouter } from "./routes/users.js"
 import { journalRouter } from "./routes/journal.js"
+import { learningStyleRouter } from "./routes/learningStyle.js"
 
 dotenv.config()  
 
@@ -15,6 +16,7 @@ app.use(cors());
 
 app.use("/auth", userRouter);
 app.use("/journal", journalRouter);
+app.use("/learning-style", learningStyleRouter);
 
 mongoose.connect(
     process.env.RESTSTUDYLISM_DB_URI,

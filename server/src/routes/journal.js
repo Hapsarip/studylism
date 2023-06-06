@@ -86,7 +86,8 @@ function calculateProgress(pickedJson) {
         }
     numberOfDoc++;
     }
-    const result = journalDone / numberOfDoc;
+    const calc = journalDone / numberOfDoc;
+    const result = calc.toFixed(3);
     return result;
 }
 
@@ -103,7 +104,7 @@ function calculateProgress(pickedJson) {
 //     }
 // });
 
-router.get('/:year/:month/:day', checkMonth('month'), async (req, res) => {
+router.post('/:year/:month/:day', checkMonth('month'), async (req, res) => {
     try {
         const ObjectId = mongodb.ObjectId;
         const id = req.body._id;
