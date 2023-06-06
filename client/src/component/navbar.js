@@ -8,6 +8,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import { AiFillCaretDown } from "react-icons/ai";
 
 const navbar = () => {
+    var Name = localStorage.getItem("name");
     return (
     <div>
         <div className="fixed grid text-center text-white justify-between font-medium h-full bg-blue w-36 items-center pt-20">
@@ -58,7 +59,7 @@ const navbar = () => {
                     <div className="text-black flex space-x-14 px-10">
                         <button className="bg-yellow flex items-center gap-3 px-3 py-2 rounded-lg text-white">
                             <BsPersonCircle/>
-                            Nama
+                            {Name}
                             <AiFillCaretDown/>
                         </button>
                     </div>

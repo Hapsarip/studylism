@@ -1,4 +1,7 @@
 import Group48 from "../assets/Group 48.png";
+import Group_Default from "../assets/Group_Default.png"
+import Group_Visual from "../assets/Group_Visual.png"
+import Group_Kinestetik from "../assets/Group_Kinestetik.png"
 import Navbar from "../component/navbar";
 import Progress_bar from "../component/progress_bar";
 import React, {useState, useEffect} from 'react';
@@ -47,19 +50,61 @@ function Dashboard () {
         console.log(progress);
     }, [progress]); // array dependensi
 
+    var Name = localStorage.getItem("name");
+    var LearningStyle = localStorage.getItem("learningStyle");
+    var UserID = localStorage.getItem("userID");
+
     return (
                 <div>
                 <Navbar></Navbar>
                 <main>
-                <div className="flex pt-60">
+                <div className="flex pt-60 space-x-3">
                 <div className="text-4xl flex-col space-y-40 my-300 ml-[300px] font-medium h-60 w-3/5 px-5 py-5 rounded-lg"> 
-                    <p className="text-4xl text-left  h-[16px] py-1">Welcome, Name</p>
-                    <p className="text-4xl text-left  h-[16px] py-1">
+                    <p className="text-4xl text-left  h-[16px] py-1">Welcome, {Name}</p>
+                    {LearningStyle==0 && (
+                        <p className="text-4xl text-left  h-[16px] py-1">
                         Sudah tahu gaya belajarmu?<br />
                         Cek gaya belajarmu dengan ikut test gaya belajar, yuk!<br />
-                    </p>
+                        </p>
+                    ) || (
+                        LearningStyle==1 && (
+                            <p className="text-4xl text-left  h-[16px] py-1">
+                            Hello, Sobat Auditori!<br />
+                            Sudah produktifkah kamu hari ini??<br />
+                            Yuk, catat kegiatan belajarmu di Fitur Jurnal!<br />
+                            </p>
+                        ) || (
+	                        LearningStyle==2 && (
+                                <p className="text-4xl text-left  h-[16px] py-1">
+                                Hello, Sobat Visual!<br />
+                                Sudah produktifkah kamu hari ini??<br />
+                                Yuk, catat kegiatan belajarmu di Fitur Jurnal!<br />
+                                </p>
+                        ) || (
+	                            LearningStyle==3 && (
+                                    <p className="text-4xl text-left  h-[16px] py-1">
+                                    Hello, Sobat Kinestetik!<br />
+                                    Sudah produktifkah kamu hari ini??<br />
+                                    Yuk, catat kegiatan belajarmu di Fitur Jurnal!<br />
+                                    </p>
+                            )
+                        )))}
+                    
+                    
                 </div>
-                            <div className="ml-40"><img src={Group48} alt="Logo" /></div>
+                    {LearningStyle==0 && (
+                        <div className="ml-40"><img src={Group_Default} alt="Logo" class="object-cover h-[500px] w-[500px] ..."/></div>
+                    ) || (
+                        LearningStyle==1 && (
+   	                        <div className="ml-40"><img src={Group48} 	alt="Logo" /></div>
+                        ) || (
+	                        LearningStyle==2 && (
+                                <div className="ml-40"><img src={Group_Visual} 	alt="Logo" /></div>
+                        ) || (
+	                            LearningStyle==3 && (
+   	                                <div className="ml-40"><img src={Group_Kinestetik} 	alt="Logo" /></div>
+                            )
+                        )))}
             </div>
                 
             <div className="flex-col space-y-10 my-[100px] ml-[300px] font-medium text-xl bg-yellow h-[250px] w-[1800px] px-5 py-5 rounded-lg">
@@ -68,7 +113,7 @@ function Dashboard () {
                     <div className="px-20">
                         < Progress_bar 
                             bgcolor="lightblue" 
-                            progress={loading ? 0 : progress}  
+                            progress = {loading || isNaN(progress) ? 0 : progress}
                             height={30} 
                         />
                     </div>
