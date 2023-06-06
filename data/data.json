@@ -1,98 +1,255 @@
 [
     {
-      "text": "I can remember best by listening to a lecture that includes information, explanations and discussions",
+      "text": "speak speaking spoke spoken",
       "category": "auditory"
     },
     {
-      "text": "I prefer to see information written on the board and supplemented by visual aids and assigned readings",
-      "category": "visual"
-    },
-    {
-      "text": "I like to write things down or take notes for visual review",
-      "category": "visual"
-    },
-    {
-      "text": "I prefer to use posters, models, or actual practice and other activities in class",
-      "category": "kinesthetic"
-    },
-    {
-      "text": "I require explanations of diagrams, graphs, or visual directions",
+      "text": "public speaking",
       "category": "auditory"
     },
     {
-      "text": "I enjoy working with my hands or making things",
-      "category": "kinesthetic"
-    },
-    {
-      "text": "I am skillful with and enjoy developing making graphs and charts",
-      "category": "visual"
-    },
-    {
-      "text": "I can tell if sounds match when presented with pairs of sounds.",
+      "text": "speak",
       "category": "auditory"
     },
     {
-      "text": "I can remember best by writing things down several times",
-      "category": "kinesthetic"
-    },
-    {
-      "text": "I can easily understand and follow directions on a map",
-      "category": "visual"
-    },
-    {
-      "text": "I do best in academic subjects by listening to lectures and tapes",
+      "text": "listen listener listening",
       "category": "auditory"
     },
     {
-      "text": "I play with coins or keys in my pocket",
-      "category": "kinesthetic"
-    },
-    {
-      "text": "I learn to spell better by repeating words out loud than by writing the words on paper",
+      "text": "listen listener listening",
       "category": "auditory"
     },
     {
-      "text": "I can understand a news article better by reading about it in the newspaper or online rather than by listening to a report about it on the radio or internet.",
-      "category": "visual"
-    },
-    {
-      "text": "I chew gum, smoke or snack while studying",
-      "category": "kinesthetic"
-    },
-    {
-      "text": "I think the best way to remember something is to picture it in my mind",
-      "category": "visual"
-    },
-    {
-      "text": "I learn the spelling of words by “finger spelling” them",
-      "category": "kinesthetic"
-    },
-    {
-      "text": "I would rather listen to a good lecture or speech than read about the same material",
+      "text": "oral presentations",
       "category": "auditory"
     },
     {
-      "text": "I am good at working and solving jigsaw puzzles and mazes",
-      "category": "visual"
-    },
-    {
-      "text": "I grip objects in my hands during learning periods",
-      "category": "kinesthetic"
-    },
-    {
-      "text": "I prefer listening to the news on the radio or online rather than reading about it in a newspaper or on the internet",
+      "text": "tell telling stories story",
       "category": "auditory"
     },
     {
-      "text": "I prefer obtaining information about an interesting subject by reading about it",
+      "text": "read aloud",
+      "category": "auditory"
+    },
+    {
+      "text": "noise noises noisy",
+      "category": "auditory"
+    },
+    {
+      "text": "enjoy conversations",
+      "category": "auditory"
+    },
+    {
+      "text": "talk talked talking out loud",
+      "category": "auditory"
+    },
+    {
+      "text": "explain idea",
+      "category": "auditory"
+    },
+    {
+      "text": "communication ability",
+      "category": "auditory"
+    },
+    {
+      "text": "sound",
+      "category": "auditory"
+    },
+    {
+      "text": "explanation",
+      "category": "auditory"
+    },
+    {
+      "text": "remember best by listening to a lecture that includes information, explanations and discussions",
+      "category": "auditory"
+    },
+    {
+      "text": "require explanations of diagrams, graphs, or visual directions",
+      "category": "auditory"
+    },
+    {
+      "text": "tell if sounds match when presented with pairs of sounds.",
+      "category": "auditory"
+    },
+    {
+      "text": "listening to lectures and tapes",
+      "category": "auditory"
+    },
+    {
+      "text": "spell by repeating words out loud",
+      "category": "auditory"
+    },
+    {
+      "text": "listen to lecture or speech",
+      "category": "auditory"
+    },
+    {
+      "text": "prefer listening to the news on the radio or online rather",
+      "category": "auditory"
+    },
+    {
+      "text": "follow oral directions better",
+      "category": "auditory"
+    },
+
+
+    {
+      "text": "write written writing",
       "category": "visual"
     },
     {
-      "text": "I feel very comfortable touching others hugging, handshaking, etc",
+      "text": "write text texting",
+      "category": "visual"
+    },
+    {
+      "text": "visual visualizing",
+      "category": "visual"
+    },
+    {
+      "text": "take note notes",
+      "category": "visual"
+    },
+    {
+      "text": "making graphs charts",
+      "category": "visual"
+    },
+    {
+      "text": "reading book",
+      "category": "visual"
+    },
+    {
+      "text": "read book",
+      "category": "visual"
+    },
+    {
+      "text": "follow directions map",
+      "category": "visual"
+    },    
+    {
+      "text": "picture",
+      "category": "visual"
+    },    
+    {
+      "text": "solving puzzles mazes",
+      "category": "visual"
+    },
+    {
+      "text": "organized",
+      "category": "visual"
+    },
+    {
+      "text": "image imagination",
+      "category": "visual"
+    },
+    {
+      "text": "imagine",
+      "category": "visual"
+    },
+    {
+      "text": "calm",
+      "category": "visual"
+    },
+    {
+      "text": "quiet",
+      "category": "visual"
+    },
+    {
+      "text": "see information written on the board and supplemented by visual aids and assigned readings",
+      "category": "visual"
+    },
+    {
+      "text": "write things down or take notes for visual review",
+      "category": "visual"
+    },
+    {
+      "text": "skillful developing making graphs and charts",
+      "category": "visual"
+    },
+    {
+      "text": "follow directions on a map",
+      "category": "visual"
+    },
+    {
+      "text": "understand a news article better by reading it in the newspaper or online rather",
+      "category": "visual"
+    },
+    {
+      "text": "remember something by picture it in my mind",
+      "category": "visual"
+    },
+    {
+      "text": "solving jigsaw puzzles and mazes",
+      "category": "visual"
+    },
+    {
+      "text": "obtaining information about an interesting subject by reading about it",
+      "category": "visual"
+    },
+
+
+    {
+      "text": "practice practicing",
       "category": "kinesthetic"
     },
     {
-      "text": "I follow oral directions better than written ones",
-      "category": "auditory"
+      "text": "active activity",
+      "category": "kinesthetic"
+    },    
+    {
+      "text": "making make",
+      "category": "kinesthetic"
+    },    
+    {
+      "text": "several times",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "play playing",
+      "category": "kinesthetic"
+    },    
+    {
+      "text": "move moving",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "experiment",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "grip object",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "touch touching",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "dance dancing",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "scribble",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "physical activity",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "exercise",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "drawing",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "touch",
+      "category": "kinesthetic"
+    },
+    {
+      "text": "actual practice activities",
+      "category": "kinesthetic"
     }
-  ]
+    
+]
