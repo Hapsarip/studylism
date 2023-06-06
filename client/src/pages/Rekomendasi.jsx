@@ -13,7 +13,7 @@ import Tips_kinetik from "../component/tips_kinetik";
 
 
 
-function Rekomendasi_Audio () {
+function Rekomendasi () {
 
     var LearningStyle = localStorage.getItem("learningStyle");
     var UserID = localStorage.getItem("userID");
@@ -110,4 +110,4 @@ return(
 ) 
 }
 
-export default Rekomendasi_Audio;
+export default Rekomendasi;

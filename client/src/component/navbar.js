@@ -14,7 +14,7 @@ const navbar = () => {
         <div className="fixed grid text-center text-white justify-between font-medium h-full bg-blue w-36 items-center pt-20">
             <div className="pl-10 space-y-8">
                 <div>
-                    <a href="/introtest">
+                    <a href="/dashboard">
                         <button className="hover:text-yellow">
                             <img src={Home} alt="home logo" className="scale-50"/>
                             Home

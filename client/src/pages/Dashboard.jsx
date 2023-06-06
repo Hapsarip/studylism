@@ -120,15 +120,19 @@ function Dashboard () {
                 </div>
                     <div className="flex space-x-10 px-40">
                         <p className="flex text-4xl text-left">Keep Studying! </p>
-                        <div className="flex bg-lightyellow rounded-lg w-[500px] h-[40px]">
-                            <p className="text-2xl text-center  h-[16px] px-5 py-1">Fill Your Journal</p>
-                        </div>
+                        <a href="/Jurnal">
+                        <button className="flex bg-lightyellow rounded-lg w-[500px] h-[40px] text-2xl text-center  h-[16px] px-5 py-1">
+                        Fill Your Journal 
+                        </button>
+                        </a>
                         <div>
                             <p className="text-4xl text-center  h-[16px]">or</p>
                         </div>
-                        <div className="flex bg-lightyellow rounded-lg w-[500px] h-[40px]">
-                            <p className="text-2xl text-center  h-[16px] px-5 py-1">Check Strategy</p>
-                        </div>
+                        <a href="/Rekomendasi">
+                        <button className="flex bg-lightyellow rounded-lg w-[500px] h-[40px] text-2xl text-center  h-[16px] px-5 py-1">
+                        Check Strategy
+                        </button>
+                        </a>
                     </div>
             </div>
             </main>
