@@ -18,13 +18,14 @@ function Rekomendasi() {
     <div>
       <Navbar></Navbar>
       <main>
-        <div className="flex text-black justify-between font-bold text-2xl ml-2 ">
+        <div className="flex text-black w-3/5 justify-between font-bold text-2xl pl-2 ">
           {(LearningStyle == 0 && (
             <h1
               style={{
                 color: "black",
-                marginLeft: "20rem",
-                marginTop: "10rem",
+                marginLeft: "12rem",
+                marginTop: "8rem",
+                marginBottom: "1rem",
               }}
             >
               Ingin Tahu Rekomendasi Gaya Belajar? Test Gaya Belajarmu Dulu,
@@ -35,8 +36,9 @@ function Rekomendasi() {
               <h1
                 style={{
                   color: "black",
-                  marginLeft: "20rem",
-                  marginTop: "10rem",
+                  marginLeft: "12rem",
+                  marginTop: "8rem",
+                  marginBottom: "1rem",
                 }}
               >
                 Auditori
@@ -46,8 +48,9 @@ function Rekomendasi() {
               <h1
                 style={{
                   color: "black",
-                  marginLeft: "20rem",
-                  marginTop: "10rem",
+                  marginLeft: "12rem",
+                  marginTop: "8rem",
+                  marginBottom: "1rem",
                 }}
               >
                 Visual
@@ -57,8 +60,9 @@ function Rekomendasi() {
               <h1
                 style={{
                   color: "black",
-                  marginLeft: "20rem",
-                  marginTop: "10rem",
+                  marginLeft: "12rem",
+                  marginTop: "8rem",
+                  marginBottom: "1rem",
                 }}
               >
                 Kinestetik
@@ -80,72 +84,76 @@ function Rekomendasi() {
           )) ||
             (LearningStyle == 1 && (
               <div className="flex">
-                <Info_gb_audio></Info_gb_audio>
-                <div className="ml-40">
-                  <img src={Group48} alt="Logo" />
+                <Info_gb_audio/>
+                <div className="px-10">
+                  <img className="w-[350px]" src={Group48} alt="Logo" />
                 </div>
               </div>
             )) ||
             (LearningStyle == 2 && (
               <div className="flex">
-                <Info_gb_visual></Info_gb_visual>
-                <div className="ml-40">
-                  <img src={Group_Visual} alt="Logo" />
+                <Info_gb_visual/>
+                <div>
+                  <img className="w-[400px]" src={Group_Visual} alt="Logo" />
                 </div>
               </div>
             )) ||
             (LearningStyle == 3 && (
               <div className="flex">
-                <Info_gb_kinetik></Info_gb_kinetik>
-                <div className="ml-40">
-                  <img src={Group_Kinestetik} alt="Logo" />
+                <Info_gb_kinetik/>
+                <div>
+                  <img className="w-[400px]" src={Group_Kinestetik} alt="Logo" />
                 </div>
               </div>
             ))}
         </div>
 
-        <div className="flex text-black justify-between font-bold text-4xl ml-2 my-5">
+        <div className="flex text-black justify-between font-bold text-2xl pl-2">
           {(LearningStyle == 0 && <div></div>) ||
             (LearningStyle == 1 && (
               <div>
-                <Tips_audio></Tips_audio>
                 <h2
                   style={{
                     color: "black",
-                    marginLeft: "20rem",
-                    marginTop: "10rem",
+                    marginLeft: "12rem",
+                    marginTop: "1rem",
+                    marginBottom: "1rem",
                   }}
                 >
                   Strategi Gaya Belajar
                 </h2>
+                <Tips_audio></Tips_audio>
               </div>
             )) ||
             (LearningStyle == 2 && (
               <div>
-                <Tips_Visual></Tips_Visual>
                 <h2
                   style={{
                     color: "black",
-                    marginLeft: "20rem",
-                    marginTop: "10rem",
+                    marginLeft: "12rem",
+                    marginTop: "1rem",
+                    marginBottom: "1rem",
                   }}
                 >
                   Strategi Gaya Belajar
                 </h2>
+                <Tips_Visual></Tips_Visual>
               </div>
             )) ||
             (LearningStyle == 3 && (
               <div>
-                <Tips_kinetik></Tips_kinetik>
                 <h2
                   style={{
                     color: "black",
-                    marginLeft: "20rem",
-                    marginTop: "10rem",
+                    marginLeft: "12rem",
+                    marginTop: "1rem",
+                    marginBottom: "1rem",
                   }}
                 >
                   Strategi Gaya Belajar
                 </h2>
+                <Tips_kinetik></Tips_kinetik>
+                
               </div>
             ))}
         </div>

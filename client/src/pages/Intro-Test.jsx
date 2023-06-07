@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function IntroTest(){
     const navTest = useNavigate();
-    const navTestInstan = useNavigate();
     const navigateToTest = () => {
         navTest('/test');
     };
@@ -16,9 +15,9 @@ export default function IntroTest(){
     return (
         <div>
             <Navbar/>
-        <div className="flex justify-center items-center w-full h-screen pl-[200px] pt-[120px]">
+        <div className="flex justify-center items-center w-full h-screen pl-[220px] pt-[100px]">
             
-            <div className='grid grid-cols-1 w-full flex items-center justify-center lg:w-3/5 mr-5'>
+            <div className='grid grid-cols-1 w-full flex items-center justify-center lg:w-3/5'>
                 
                 <div className="w-full text-black text-2xl text-left my-5 font-muli">
                     Penasaran dengan gaya belajar terbaik Anda? Lakukan tes terlebih dahulu di sini! Tenang, cepat kok! Tidak lama dan pastinya mudah!
@@ -37,7 +36,7 @@ export default function IntroTest(){
                 </div>
                 
             </div>
-            <div className="hidden lg:flex h-full w-2/5 items-center justify-center">
+            <div className="hidden lg:flex h-full w-2/5 items-center justify-center pr-10">
                 <img class="justify-center items-center mx-10 mt-10" src={Test} alt="bgImg"/>
             </div>
         </div>
