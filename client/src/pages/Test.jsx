@@ -142,6 +142,7 @@ export default function IntroTest() {
             console.log(res.data.message);
             localStorage.setItem("learningStyle", style);
             console.log("submit trus dapet style: " ,style);
+
             // toast(res.data.message);
             //navigate("/rekomendasi");
 

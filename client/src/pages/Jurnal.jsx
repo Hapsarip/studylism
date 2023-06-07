@@ -27,7 +27,7 @@ export default function Jurnal() {
         _id: ""
       }})
 
-  const BASE_API_URL = "http://localhost:3001";
+    const BASE_API_URL = "http://localhost:3001";
 
     const handleOnClose = () => setShowAddJurnal(false);
 
@@ -187,9 +187,11 @@ export default function Jurnal() {
                             ) : data.length > 0 ? (
                                 data.map((data) => (
                                 <TaskCard
-                                    key={data._id}
+                                    key={data.index}
                                     title={data.title}
                                     description={data.description}
+                                    isDone={data.status}
+                                    taskID={data._id}
                                 />
                                 ))
                             ) : (
