@@ -125,16 +125,35 @@ router.put('/edit', async (req, res) => {
         const ObjectId = mongodb.ObjectId;
         const id = req.body._id;
         const filter = new ObjectId(id);
-        const title = req.body.title;
-        const description = req.body.description;
+        // const title = req.body.title;
+        // const description = req.body.description;
         const status = req.body.status;
-        const update = { title, description, status };
+        // const update = { title, description, status };
+        const update = { status };
         const response = await JournalModel.findOneAndUpdate(filter, update, {new : true});
-        res.json(response);
+        const updatedStatus = response.status;
+        res.json(updatedStatus);
     } catch (err) {
         console.error(err);
     }
 });
+
+// router.put('/editStatus', async (req, res) => {
+//     try {
+//         const ObjectId = mongodb.ObjectId;
+//         const id = req.body._id;
+//         const filter = new ObjectId(id);
+//         const status = req.body.status;
+//         const update = { status };
+//         const response = await UserModel.findOneAndUpdate(filter, update, {
+//           new: true,
+//         });
+//         const updatedStatus = response.status;
+//         res.json({ updatedStatus });
+//     } catch (err) {
+//         console.error(err);
+//     }
+// });
 
 // Define a route handler for your delete request
 router.delete('/delete', async (req, res) => {
