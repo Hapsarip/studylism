@@ -63,7 +63,7 @@ function Dashboard() {
     <div className="items-center">
       <Navbar />
       <Chat />
-      <div className="flex pt-20 space-x-3 items-center pl-40">
+      <div className="flex pt-20 items-center pl-40">
         <div className="text-2xl flex-col space-y-10 my-30 pl-20 font-medium h-60 w-3/5 px-5 py-5 rounded-lg">
           <p className="text-2xl text-left h-[16px] py-1">Welcome, {Name}</p>
           {(LearningStyle == 0 && (
@@ -105,6 +105,7 @@ function Dashboard() {
               </p>
             ))}
         </div>
+        <div className="w-2/5">
         {(LearningStyle == 0 && (
           <div className="ml-10">
             <img
@@ -141,6 +142,7 @@ function Dashboard() {
               />
             </div>
           ))}
+          </div>
       </div>
       <div className="flex-col ml-60 font-medium text-xl bg-yellow h-fit mr-40 rounded-lg">
         <div>

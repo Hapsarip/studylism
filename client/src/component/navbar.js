@@ -25,7 +25,7 @@ const navbar = () => {
             </a>
           </div>
           <div>
-            <a href="/test">
+            <a href="/introtest">
               <button className="hover:text-yellow">
                 <img src={Test} alt="home logo" className="scale-50" />
                 Test
