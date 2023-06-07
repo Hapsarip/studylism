@@ -2,6 +2,115 @@ import React, {useState, useEffect} from 'react'
 import Navbar from '../component/navbar';
 
 export default function IntroTest() {
+    const [selectedValue, setSelectedValue] = useState("");
+    const [frequency, setFrequency] = useState(null); // state variable to store the frequency object
+    const [maxKey, setMaxKey] = useState(null);
+    // Declare a state variable for the count of each value
+    const [count, setCount] = useState({
+        Auditory: 0,
+        Visual: 0,
+        Kinesthetic: 0
+    });
+
+    // Define an onChange handler function
+    function handleChange(e) {
+        // Get the value of the radio button that was clicked
+        const value = e.target.value;
+
+        // Update the state with the selected value
+        setSelectedValue(value);
+    }
+
+    function findSelection (field) {
+        var radios = document.getElementsByName (field); // get all radio buttons with the same name
+        var value; // declare a variable to store the value
+        for (var i = 0; i < radios.length; i++) { // loop through all radio buttons
+            if (radios [i].checked) { // if the radio button is checked
+                value = radios [i].value; // get the value
+                break; // exit the loop
+            }
+        }
+        return value; // return the value
+    }
+
+    function countFrequency(array) {
+        // create an empty object to store the frequency of each value
+        var frequency = {};
+        // loop through the array
+        for (var i = 0; i < array.length; i++) {
+          // get the current value
+          var value = array[i];
+          // if the value is already in the object, increment its count
+          if (frequency[value]) {
+            frequency[value]++;
+          }
+          // otherwise, set its count to 1
+          else {
+            frequency[value] = 1;
+          }
+        }
+        // return the object with the frequency of each value
+        return frequency;
+    }
+
+    function findMaxKey(array) {
+        // initialize variables to store the max key and value and the second max key and value
+        let maxKey = "";
+        let maxValue = -Infinity;
+        let secondMaxKey = "";
+        let secondMaxValue = -Infinity;
+      
+        // loop through the array
+        for (let i = 0; i < array.length; i++) {
+          // get the current key and value
+          let key = array[i][0];
+          let value = array[i][1];
+      
+          // check if the current value is greater than the max value
+          if (value > maxValue) {
+            // update the second max key and value to be the previous max key and value
+            secondMaxKey = maxKey;
+            secondMaxValue = maxValue;
+            // update the max key and value to be the current key and value
+            maxKey = key;
+            maxValue = value;
+          } else if (value > secondMaxValue) {
+            // check if the current value is greater than the second max value
+            // update the second max key and value to be the current key and value
+            secondMaxKey = key;
+            secondMaxValue = value;
+          }
+        }
+      
+        // check if the max key is ""
+        if (maxKey === "") {
+          // return the second max key
+          return secondMaxKey;
+        } else {
+          // return the max key
+          return maxKey;
+        }
+      }
+
+    function handleSubmit(event) {
+        // function to handle the submit event of the form
+        event.preventDefault(); // prevent the default behavior of the form
+        console.log(selectedValue); // print the selected value to the console
+        // same as before
+        var array = []; // create an empty array to store the selected values
+        for (var i = 1; i <= 15; i++) {
+          // loop through the radio button groups
+          var field = "radio-" + i; // get the name of the radio button group
+          var value = findSelection(field); // get the selected value of the radio button group
+          array.push(value); // add the value to the array
+        }
+        console.log(array);
+        // var frequency =  // get the frequency object of the array
+        setFrequency(countFrequency(array)); // update the state variable with the frequency object 
+        console.log(frequency);
+        setMaxKey(findMaxKey(frequency));
+        console.log(maxKey);
+    }
     
     return(
         <div>
@@ -12,6 +121,7 @@ export default function IntroTest() {
                     TEST SEDANG BERJALAN
                 </div>
             </div>
+            <form onSubmit={handleSubmit}>
             <div>
                 {/* Pertanyaan 1 */}
                 <div className='flex flex-col items-center mt-5'>
@@ -28,25 +138,32 @@ export default function IntroTest() {
                         <div class="flex justify-center items-center">
                             <label className='mx-4'>Tidak Setuju</label>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1a" type="radio" value="" name="radio-1" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1a" type="radio" value=""
+            onChange={handleChange} name="radio-1" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1a" type="radio" value="" name="radio-1" class="w-12 h-12 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1a" type="radio" value=""
+            onChange={handleChange} name="radio-1" class="w-12 h-12 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1c" type="radio" value="" name="radio-1" class="w-10 h-10 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1c" type="radio" value=""
+            onChange={handleChange} name="radio-1" class="w-10 h-10 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1d" type="radio" value="" name="radio-1" class="w-8 h-8 border-2 border-[#929292] focus:bg-[#929292] rounded-full"/>
+                                <input id="radio-1d" type="radio" value=""
+            onChange={handleChange} name="radio-1" class="w-8 h-8 border-2 border-[#929292] focus:bg-[#929292] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1e" type="radio" value="Auditory" name="radio-1" class="w-10 h-10 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1e" type="radio" value="Auditory"
+            onChange={handleChange} name="radio-1" class="w-10 h-10 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1f" type="radio" value="Auditory" name="radio-1" class="w-12 h-12 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1f" type="radio" value="Auditory"
+            onChange={handleChange} name="radio-1" class="w-12 h-12 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1g" type="radio" value="Auditory" name="radio-1" class="w-14 h-14 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1g" type="radio" value="Auditory"
+            onChange={handleChange} name="radio-1" class="w-14 h-14 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <label className='mx-4'>Sangat Setuju</label>
                         </div>
@@ -184,25 +301,32 @@ export default function IntroTest() {
                         <div class="flex justify-center items-center">
                             <label className='mx-4'>Tidak Setuju</label>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1a" type="radio" value="" name="radio-5" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1a" type="radio" value=""
+            onChange={handleChange} name="radio-5" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1a" type="radio" value="" name="radio-5" class="w-12 h-12 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1a" type="radio" value=""
+            onChange={handleChange} name="radio-5" class="w-12 h-12 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1c" type="radio" value="" name="radio-5" class="w-10 h-10 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1c" type="radio" value=""
+            onChange={handleChange} name="radio-5" class="w-10 h-10 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1d" type="radio" value="" name="radio-5" class="w-8 h-8 border-2 border-[#929292] focus:bg-[#929292] rounded-full"/>
+                                <input id="radio-1d" type="radio" value=""
+            onChange={handleChange} name="radio-5" class="w-8 h-8 border-2 border-[#929292] focus:bg-[#929292] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1e" type="radio" value="Auditory" name="radio-5" class="w-10 h-10 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1e" type="radio" value="Auditory"
+            onChange={handleChange} name="radio-5" class="w-10 h-10 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1f" type="radio" value="Auditory" name="radio-5" class="w-12 h-12 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1f" type="radio" value="Auditory"
+            onChange={handleChange} name="radio-5" class="w-12 h-12 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1g" type="radio" value="Auditory" name="radio-5" class="w-14 h-14 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1g" type="radio" value="Auditory"
+            onChange={handleChange} name="radio-5" class="w-14 h-14 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <label className='mx-4'>Sangat Setuju</label>
                         </div>
@@ -301,25 +425,32 @@ export default function IntroTest() {
                         <div class="flex justify-center items-center">
                             <label className='mx-4'>Tidak Setuju</label>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1a" type="radio" value="" name="radio-8" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1a" type="radio" value=""
+            onChange={handleChange} name="radio-8" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1a" type="radio" value="" name="radio-8" class="w-12 h-12 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1a" type="radio" value=""
+            onChange={handleChange} name="radio-8" class="w-12 h-12 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1c" type="radio" value="" name="radio-8" class="w-10 h-10 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1c" type="radio" value=""
+            onChange={handleChange} name="radio-8" class="w-10 h-10 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1d" type="radio" value="" name="radio-8" class="w-8 h-8 border-2 border-[#929292] focus:bg-[#929292] rounded-full"/>
+                                <input id="radio-1d" type="radio" value=""
+            onChange={handleChange} name="radio-8" class="w-8 h-8 border-2 border-[#929292] focus:bg-[#929292] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1e" type="radio" value="Auditory" name="radio-8" class="w-10 h-10 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1e" type="radio" value="Auditory"
+            onChange={handleChange} name="radio-8" class="w-10 h-10 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1f" type="radio" value="Auditory" name="radio-8" class="w-12 h-12 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1f" type="radio" value="Auditory"
+            onChange={handleChange} name="radio-8" class="w-12 h-12 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1g" type="radio" value="Auditory" name="radio-8" class="w-14 h-14 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1g" type="radio" value="Auditory"
+            onChange={handleChange} name="radio-8" class="w-14 h-14 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <label className='mx-4'>Sangat Setuju</label>
                         </div>
@@ -418,25 +549,31 @@ export default function IntroTest() {
                         <div class="flex justify-center items-center">
                             <label className='mx-4'>Tidak Setuju</label>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1a" type="radio" value="" name="radio-11" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1a" type="radio" value=""
+            onChange={handleChange} name="radio-11" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1a" type="radio" value="" name="radio-11" class="w-12 h-12 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1a" type="radio" value="" 
+            onChange={handleChange} name="radio-11" class="w-12 h-12 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1c" type="radio" value="" name="radio-11" class="w-10 h-10 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1c" type="radio" value="" 
+            onChange={handleChange} name="radio-11" class="w-10 h-10 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
                                 <input id="radio-1d" type="radio" value="" name="radio-11" class="w-8 h-8 border-2 border-[#929292] focus:bg-[#929292] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1e" type="radio" value="Auditory" name="radio-11" class="w-10 h-10 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1e" type="radio" value="Auditory" 
+            onChange={handleChange} name="radio-11" class="w-10 h-10 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1f" type="radio" value="Auditory" name="radio-11" class="w-12 h-12 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1f" type="radio" value="Auditory"
+            onChange={handleChange} name="radio-11" class="w-12 h-12 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1g" type="radio" value="Auditory" name="radio-11" class="w-14 h-14 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1g" type="radio" value="Auditory"
+            onChange={handleChange} name="radio-11" class="w-14 h-14 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <label className='mx-4'>Sangat Setuju</label>
                         </div>
@@ -496,25 +633,32 @@ export default function IntroTest() {
                         <div class="flex justify-center items-center">
                             <label className='mx-4'>Tidak Setuju</label>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1a" type="radio" value="" name="radio-13" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1a" type="radio" value=""
+            onChange={handleChange} name="radio-13" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1a" type="radio" value="" name="radio-13" class="w-12 h-12 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1a" type="radio" value=""
+            onChange={handleChange} name="radio-13" class="w-12 h-12 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1c" type="radio" value="" name="radio-13" class="w-10 h-10 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1c" type="radio" value="" 
+            onChange={handleChange} name="radio-13" class="w-10 h-10 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1d" type="radio" value="" name="radio-13" class="w-8 h-8 border-2 border-[#929292] focus:bg-[#929292] rounded-full"/>
+                                <input id="radio-1d" type="radio" value="" 
+            onChange={handleChange} name="radio-13" class="w-8 h-8 border-2 border-[#929292] focus:bg-[#929292] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1e" type="radio" value="Auditory" name="radio-13" class="w-10 h-10 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1e" type="radio" value="Auditory" 
+            onChange={handleChange} name="radio-13" class="w-10 h-10 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1f" type="radio" value="Auditory" name="radio-13" class="w-12 h-12 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1f" type="radio" value="Auditory" 
+            onChange={handleChange} name="radio-13" class="w-12 h-12 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1g" type="radio" value="Auditory" name="radio-13" class="w-14 h-14 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1g" type="radio" value="Auditory" 
+            onChange={handleChange} name="radio-13" class="w-14 h-14 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <label className='mx-4'>Sangat Setuju</label>
                         </div>
@@ -574,25 +718,32 @@ export default function IntroTest() {
                         <div class="flex justify-center items-center">
                             <label className='mx-4'>Tidak Setuju</label>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1a" type="radio" value="" name="radio-15" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1a" type="radio" value="" 
+            onChange={handleChange} name="radio-15" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1a" type="radio" value="" name="radio-15" class="w-12 h-12 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1a" type="radio" value="" 
+            onChange={handleChange} name="radio-15" class="w-12 h-12 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1c" type="radio" value="" name="radio-15" class="w-10 h-10 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input id="radio-1c" type="radio" value="" 
+            onChange={handleChange} name="radio-15" class="w-10 h-10 border-2 border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1d" type="radio" value="" name="radio-15" class="w-8 h-8 border-2 border-[#929292] focus:bg-[#929292] rounded-full"/>
+                                <input id="radio-1d" type="radio" value="" 
+            onChange={handleChange} name="radio-15" class="w-8 h-8 border-2 border-[#929292] focus:bg-[#929292] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1e" type="radio" value="Kinesthetic" name="radio-15" class="w-10 h-10 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1e" type="radio" value="Kinesthetic" 
+            onChange={handleChange} name="radio-15" class="w-10 h-10 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1f" type="radio" value="Kinesthetic" name="radio-15" class="w-12 h-12 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1f" type="radio" value="Kinesthetic" 
+            onChange={handleChange} name="radio-15" class="w-12 h-12 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1g" type="radio" value="Kinesthetic" name="radio-15" class="w-14 h-14 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
+                                <input id="radio-1g" type="radio" value="Kinesthetic" 
+            onChange={handleChange} name="radio-15" class="w-14 h-14 border-2 border-[#F8B200] focus:bg-[#F8B200] rounded-full"/>
                             </div>
                             <label className='mx-4'>Sangat Setuju</label>
                         </div>
@@ -600,10 +751,23 @@ export default function IntroTest() {
                 </div>         
             </div>
             <div className='flex flex-col items-center my-5'>
-                <button className="bg-yellow w-[120px] px-3 py-2 rounded-xl font-muli text-lg" >
+                <button type="submit" className="bg-yellow w-[120px] px-3 py-2 rounded-xl font-muli text-lg" >
                     Selesai Test
                 </button>
             </div>
+            {frequency && (
+        <div>
+          <p>The frequency of each value is:</p>
+          <ul>
+            {Object.keys(frequency).map((key) => (
+              <li key={key}>
+                {key}: {frequency[key]}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+            </form>
         </div>
         </div>
     )
