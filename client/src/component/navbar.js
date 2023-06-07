@@ -59,7 +59,7 @@ const navbar = () => {
         </div>
         <div>
           <div className="font-semibold flex justify-between text-lg space-x-14">
-            <div className="bg-yellow flex items-center gap-3 px-3 py-2 rounded-lg text-white">
+            <div className="bg-yellow flex items-center mr-8 gap-3 px-3 py-2 rounded-lg text-white">
               <a href="/login">
                 <div onClick={() => LogOut()}>Log Out</div>
               </a>
