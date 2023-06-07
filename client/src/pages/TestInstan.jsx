@@ -11,14 +11,16 @@ import axios from 'axios';
 function TestInstan () {
 
     return (
-                <div>
-                <Navbar></Navbar>
-                <main>
-                <div className="flex pt-60 space-x-3">
-                </div>
+        <div>
+            <Navbar/>
+            <main>
+            <div className="flex flex-col items-center pt-60 space-x-3">
+            </div>
 
+            <div className="flex flex-col justify-items-center w-full h-screen pl-[110px] pt-[120px]">
+                
             
-            <div className="flex-col space-y-10 my-[100px] ml-[300px] font-medium text-xl bg-yellow h-[250px] w-[1800px] px-5 py-5 rounded-lg">
+            <div className="flex-col space-y-10 my-[100px] ml-[300px] font-medium text-xl bg-yellow h-[250px] w-[1100px] px-5 py-5 rounded-lg">
                 <div>
                     <p className="text-4xl text-center  h-[16px] py-1">Input a Description of Yourself!</p>
                     
@@ -31,11 +33,11 @@ function TestInstan () {
                     </div>
             </div>
             <div>
-                <button className="flex-col bg-black ml-[950px] rounded-lg w-[200px] h-[40px] text-2xl text-white  h-[16px] px-60 py-1">
+                <button className="flex-col bg-black rounded-lg w-[200px] h-[40px] text-2xl text-white  px-60 py-1">
                 Test
                 </button>
             </div>
-            <div className="flex-col space-y-10 mt-20 my-[100px] ml-[300px] font-medium text-xl bg-blue h-[200px] w-[1800px] px-5 py-5 rounded-lg">
+            <div className="flex-col space-y-10 mt-20 my-[100px] ml-[300px] font-medium text-xl bg-blue h-[200px] w-[1100px] px-5 py-5 rounded-lg">
                 <div>
                     <p className="text-4xl text-center text-white  h-[16px] py-1">Result</p>
                     
@@ -47,8 +49,10 @@ function TestInstan () {
                         </div>
                     </div>
             </div>
-            </main>
             </div>
+            </main>
+            
+        </div>
     )}
 
 export default TestInstan;

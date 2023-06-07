@@ -63,6 +63,23 @@ router.put('/edit_name', async (req, res) => {
     }
 });
 
+router.put("/learningStyle", async (req, res) => {
+    try {
+      const ObjectId = mongodb.ObjectId;
+      const id = req.body._id;
+      const filter = new ObjectId(id);
+      const learningStyle = req.body.learningStyle;
+      const update = { learningStyle };
+      const response = await UserModel.findOneAndUpdate(filter, update, {
+        new: true,
+      });
+      const updatedLearningStyle = response.learningStyle;
+      res.json({ updatedLearningStyle });
+    } catch (err) {
+      console.log(err);
+    }
+  });
+
 router.put('/edit_password', async (req, res) => {
     try {
         const ObjectId = mongodb.ObjectId;

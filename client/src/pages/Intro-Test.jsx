@@ -1,8 +1,18 @@
 import React from 'react'
 import Test from '../assets/test.png'
 import Navbar from '../component/navbar'
+import { useNavigate } from "react-router-dom";
 
 export default function IntroTest(){
+    const navTest = useNavigate();
+    const navTestInstan = useNavigate();
+    const navigateToTest = () => {
+        navTest('/test');
+    };
+    const navigateToTestInstan = () => {
+        navTest('/testinstan');
+    };
+
     return (
         <div>
             <Navbar/>
@@ -13,9 +23,19 @@ export default function IntroTest(){
                 <div className="w-full text-black text-2xl text-left my-5 font-muli">
                     Penasaran dengan gaya belajar terbaik Anda? Lakukan tes terlebih dahulu di sini! Tenang, cepat kok! Tidak lama dan pastinya mudah!
                 </div>
-                <button className="place-items-start bg-yellow w-[120px] px-3 py-2 rounded-xl font-muli text-lg">
-                    Mulai Test
-                </button>
+                <div className='flex '>
+                    <button
+                        className="place-items-start bg-yellow w-[120px] px-3 py-2 mr-5 rounded-xl font-muli text-lg hover:bg-[#D99D04]"
+                        onClick={navigateToTest}>
+                        Mulai Test
+                    </button>
+                    <button 
+                        className="place-items-start bg-yellow w-[120px] px-3 py-2 rounded-xl font-muli text-lg hover:bg-[#D99D04]"
+                        onClick={navigateToTestInstan}>
+                        Test Instan
+                    </button>
+                </div>
+                
             </div>
             <div className="hidden lg:flex h-full w-2/5 items-center justify-center">
                 <img class="justify-center items-center mx-10 mt-10" src={Test} alt="bgImg"/>
