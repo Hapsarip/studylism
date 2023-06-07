@@ -2,7 +2,7 @@ import React from 'react'
 
 const tips_audio = () => {
     return(
-<div className="flex my-1 ml-[300px] font-medium text-xl bg-lightblue w-[1500px] h-[400px] px-10 py-5 rounded-lg">
+<div className="flex ml-[190px] mb-10 font-normal text-base bg-lightblue h-60 w-[1200px] px-5 py-5 rounded-lg">
                 1. Duduklah di tempat Anda bisa mendengar. <br />
                 2. Periksakan pendengaran Anda secara teratur.<br />
                 3. Gunakan kartu flash untuk mempelajari kata-kata baru serta membacanya dengan lantang.<br />

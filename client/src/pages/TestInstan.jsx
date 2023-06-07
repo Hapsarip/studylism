@@ -72,9 +72,9 @@ function TestInstan() {
         <div className="flex-col space-y-1 my-[50px] ml-[400px] font-regular text-xl bg-yellow h-[150px] w-[800px] px-5 py-10 mt-[40px] rounded-lg">
           <div>
             <textarea
-              className="text-2xl text-center bg-lightyellow w-full h-[80px] px-5 py-1"
+              className="text-xl text-center rounded-md bg-lightyellow w-full h-[90px] px-5 py-1"
               rows="10"
-              placeholder="Tulis kebiasaan belajarmu di dini (dalam bahasa inggris)"
+              placeholder="Tulis kebiasaan belajarmu di sini dalam bahasa inggris"
               onChange={(event) => setStory(event.target.value)}
             ></textarea>
           </div>
@@ -82,7 +82,7 @@ function TestInstan() {
         <div>
           <button
             onClick={() => getLearningStyle()}
-            className="flex-col bg-yellow hover:bg-[#D99D04] ml-[700px] rounded-lg w-[200px] h-[40px] text-2xl text-white  h-[16px] px-20 py-1"
+            className="flex-col bg-yellow hover:bg-[#D99D04] ml-[700px] rounded-lg w-[200px] h-[40px] text-2xl text-white px-20 py-1"
           >
             Test
           </button>
@@ -94,8 +94,8 @@ function TestInstan() {
             </p>
           </div>
           <div className="flex space-x-10 px-5">
-            <div className="flex bg-lightblue rounded-lg w-[3000px] h-[80px]">
-              <p className="text-2xl text-center  h-[16px] px-5 py-1">
+            <div className="flex bg-lightblue rounded-md w-[3000px] h-[80px]">
+              <p className="text-xl text-center  h-[16px] px-5 py-1">
                 {result}
               </p>
             </div>

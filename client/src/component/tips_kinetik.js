@@ -2,7 +2,7 @@ import React from 'react'
 
 const tips_kinetik = () => {
     return(
-<div className="flex my-1 ml-[300px] font-medium text-xl bg-lightblue w-[1500px] h-[400px] px-10 py-5 rounded-lg">
+<div className="flex ml-[190px] mb-10 font-normal text-base bg-lightblue h-60 w-[1200px] px-5 py-5 rounded-lg">
                 1. Berpartisipasi dalam aktivitas yang melibatkan menyentuh, membangun, bergerak, atau menggambar. <br />
                 2. Lakukan banyak aktivitas langsung seperti menyelesaikan proyek seni, berjalan-jalan, atau memerankan cerita.<br />
                 3. Tidak apa-apa mengunyah permen karet, berjalan-jalan, atau bergoyang di kursi sambil membaca atau belajar.<br />

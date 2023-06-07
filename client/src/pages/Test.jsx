@@ -109,21 +109,25 @@ export default function IntroTest() {
         var frequencyArray = Object.entries(frequencyObject); // convert the frequency object to an array of arrays
         setFrequency(frequencyArray); // update the state variable with the frequency array 
         console.log(frequencyArray);
+        let tempMaxKey = findMaxKey(frequencyArray);
         setMaxKey(findMaxKey(frequencyArray)); // call findMaxKey with frequencyArray instead of frequencyObject
-        console.log(maxKey);
-        
-        switch(maxKey) {
+        console.log("maxkey = ", tempMaxKey);
+        let style = 0;
+        switch(tempMaxKey) {
             case "Auditory":
               // code block
               setLearningStyle(1);
+              style = 1;
               break;
             case "Visual":
               // code block
               setLearningStyle(2);
+              style = 2;
               break;
             case "Kinesthetic":
               // code block
               setLearningStyle(3);
+              style = 3;
               break;
             default:
           }
@@ -133,9 +137,10 @@ export default function IntroTest() {
             const res = await axios.put("http://localhost:3001/auth/learningStyle",  
                 {
                     _id : userID,
-                    learningStyle: learningStyle
+                    learningStyle: style
                 })
             console.log(res.data.message);
+            console.log("submit trus dapet style: " ,style);
             // toast(res.data.message);
             // navigate("/login")
             
