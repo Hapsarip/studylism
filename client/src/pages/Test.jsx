@@ -1,11 +1,17 @@
 import React, {useState, useEffect} from 'react'
 import Navbar from '../component/navbar';
+import axios from 'axios';
 
 export default function IntroTest() {
     const [selectedValue, setSelectedValue] = useState("");
     const [frequency, setFrequency] = useState({});
     const [maxKey, setMaxKey] = useState("");
+    const [userID, setUserID] = useState("");
+    const [learningStyle, setLearningStyle] = useState("");
 
+    useEffect(() => {
+        setUserID(localStorage.getItem("userID"));    
+    }, []);
     // Define an onChange handler function
     function handleChange(e) {
         // Get the value of the radio button that was clicked
@@ -86,7 +92,7 @@ export default function IntroTest() {
         }
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         // function to handle the submit event of the form
         event.preventDefault(); // prevent the default behavior of the form
         console.log(selectedValue); // print the selected value to the console
@@ -105,6 +111,38 @@ export default function IntroTest() {
         console.log(frequencyArray);
         setMaxKey(findMaxKey(frequencyArray)); // call findMaxKey with frequencyArray instead of frequencyObject
         console.log(maxKey);
+        
+        switch(maxKey) {
+            case "Auditory":
+              // code block
+              setLearningStyle(1);
+              break;
+            case "Visual":
+              // code block
+              setLearningStyle(2);
+              break;
+            case "Kinesthetic":
+              // code block
+              setLearningStyle(3);
+              break;
+            default:
+          }
+        console.log(learningStyle);
+
+        try{
+            const res = await axios.put("http://localhost:3001/auth/learningStyle",  
+                {
+                    _id : userID,
+                    learningStyle: learningStyle
+                })
+            console.log(res.data.message);
+            // toast(res.data.message);
+            // navigate("/login")
+            
+        } catch (err) {
+            console.error(err.response.data.message);
+            // toast.error(err.response.data.message)
+        }
     }
     
     return(
@@ -133,8 +171,9 @@ export default function IntroTest() {
                         <div class="flex justify-center items-center">
                             <label className='mx-4'>Tidak Setuju</label>
                             <div class="flex items-center mx-4">
-                                <input id="radio-1a" type="radio" value=""
-            onChange={handleChange} name="radio-1" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
+                                <input
+                                    id="radio-1a" 
+                                    type="radio" value="" onChange={handleChange} name="radio-1" class="w-14 h-14 border-2 hover:[#377DC3] border-[#377DC3] focus:bg-[#377DC3] rounded-full"/>
                             </div>
                             <div class="flex items-center mx-4">
                                 <input id="radio-1a" type="radio" value=""
@@ -761,6 +800,7 @@ export default function IntroTest() {
             ))}
           </ul>
           <p>The maxKey is:<span>{maxKey}</span></p>
+          <p>The learning style is:<span>{learningStyle}</span></p>
         </div>
       )}
             </form>
