@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Vector from "../assets/Vector.png";
 import Home from "../assets/Home.svg";
 import Test from "../assets/Test.svg";
@@ -8,6 +8,9 @@ import { BsPersonCircle } from "react-icons/bs";
 import { AiFillCaretDown } from "react-icons/ai";
 
 const navbar = () => {
+  const LogOut = () => {
+    localStorage.clear();
+  };
   var Name = localStorage.getItem("name");
   return (
     <div>
@@ -56,12 +59,10 @@ const navbar = () => {
         </div>
         <div>
           <div className="font-semibold flex justify-between text-lg space-x-14">
-            <div className="text-black flex space-x-14 px-10">
-              <button className="bg-yellow flex items-center gap-3 px-3 py-2 rounded-lg text-white">
-                <BsPersonCircle />
-                {Name}
-                <AiFillCaretDown />
-              </button>
+            <div className="bg-yellow flex items-center gap-3 px-3 py-2 rounded-lg text-white">
+              <a href="/login">
+                <div onClick={() => LogOut()}>Log Out</div>
+              </a>
             </div>
           </div>
         </div>

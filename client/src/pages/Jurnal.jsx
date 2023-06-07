@@ -27,7 +27,7 @@ export default function Jurnal() {
         _id: ""
       }})
 
-    const BASE_API_URL = "http://localhost:3001";
+  const BASE_API_URL = "http://localhost:3001";
 
     const handleOnClose = () => setShowAddJurnal(false);
 
@@ -81,7 +81,7 @@ export default function Jurnal() {
           })()
     }, [selectDate] );
 
-    return (
+  return (
     <div>
         <Navbar></Navbar>
         <div className="flex w-1/2 mx-auto divide-x-2 gap-10 h-screen pt-20 items-center">
@@ -199,8 +199,10 @@ export default function Jurnal() {
                     </div>
                 </div>
             </div>
-            <AddJurnal onClose={handleOnClose} visible={showAddJurnal}/>
+          </div>
         </div>
+        <AddJurnal onClose={handleOnClose} visible={showAddJurnal} />
+      </div>
     </div>
-    )
+  );
 }
