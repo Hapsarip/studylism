@@ -199,10 +199,8 @@ export default function Jurnal() {
                     </div>
                 </div>
             </div>
-          </div>
-        </div>
         <AddJurnal onClose={handleOnClose} visible={showAddJurnal} />
-      </div>
+        </div>
     </div>
   );
 }
