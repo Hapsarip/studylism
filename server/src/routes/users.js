@@ -77,22 +77,38 @@ router.put("/learningStyle", async (req, res) => {
   }
 });
 
-router.put("/edit_password", async (req, res) => {
-  try {
-    const ObjectId = mongodb.ObjectId;
-    const id = req.body._id;
-    const filter = new ObjectId(id);
-    const password = req.body.password;
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const update = { password: hashedPassword };
-    const response = await UserModel.findOneAndUpdate(filter, update, {
-      new: true,
-    });
-    const updatedPassword = response.password;
-    res.json({ updatedPassword });
-  } catch (err) {
-    console.log(err);
-  }
+router.put("/learningStyle", async (req, res) => {
+    try {
+      const ObjectId = mongodb.ObjectId;
+      const id = req.body._id;
+      const filter = new ObjectId(id);
+      const learningStyle = req.body.learningStyle;
+      const update = { learningStyle };
+      const response = await UserModel.findOneAndUpdate(filter, update, {
+        new: true,
+      });
+      const updatedLearningStyle = response.learningStyle;
+      res.json({ updatedLearningStyle });
+    } catch (err) {
+      console.log(err);
+    }
+  });
+
+router.put('/edit_password', async (req, res) => {
+    try {
+        const ObjectId = mongodb.ObjectId;
+        const id = req.body._id;
+        const filter = new ObjectId(id);
+        const password = req.body.password;
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const update = { password: hashedPassword };
+        const response = await UserModel.findOneAndUpdate(filter, update, { new: true });
+        const updatedPassword = response.password
+        res.json({ updatedPassword });;
+    } catch (err) {
+        console.log(err);
+    }
+
 });
 
 router.put("/edit_email", async (req, res) => {
