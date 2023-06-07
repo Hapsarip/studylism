@@ -52,7 +52,7 @@ function TestInstan() {
         }
         const learningStyle = result.classifications[0].category;
         console.log(`\tClassification: ${learningStyle}`);
-        setResult(learningStyle);
+        setResult(learningStyle);  
       }
     }
     setLoading(false);
