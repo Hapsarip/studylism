@@ -20,13 +20,20 @@ export default function Jurnal() {
     const [showAddJurnal, setShowAddJurnal] = useState(false);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [apiEndpoint, setApiEndpoint] = useState('');
-    const [userID, setUserID] = useState('');
+    // const [apiEndpoint, setApiEndpoint] = useState('');
+    // const [userID, setUserID] = useState('');
     const [progress, setProgress] = useState('');
+    const [dataToShow, setDataToShow] = useState({data:{
+        _id: ""
+      }})
 
     const BASE_API_URL = "http://localhost:3001";
 
     const handleOnClose = () => setShowAddJurnal(false);
+
+    const handleClick = (data) => (
+        setDataToShow(data)
+    )
     
     const handleChange=(data)=>{
         console.log(data)
@@ -35,24 +42,27 @@ export default function Jurnal() {
     useEffect(() => {
         // const ep = BASE_API_URL.join("/").join(today.year).join("/").join(today.month).join("/").join(today.date);
         // const ep = `${BASE_API_URL}/journal/${today.year}/${today.month}/${today.day}`
-        const id = localStorage.getItem("userID");
-        setUserID(id);
+        const userID = localStorage.getItem("userID");
+        // setUserID(id);
         console.log(userID);
 
-        const y = today.get('year');
-        const m = today.get('month')+1;
-        const d = today.get('date');
-        const ep = `${BASE_API_URL}/journal/${y}/${m}/${d}`
-        setApiEndpoint(ep);
-        console.log(apiEndpoint);
+        // const y = today.get('year');
+        // const m = today.get('month')+1;
+        // const d = today.get('date');
+        const y = selectDate.$d;
+        const m = selectDate.$m;
+        const d = selectDate.$y;
+        const ep = `${BASE_API_URL}/journal/${selectDate.get('year')}/${selectDate.get('month')+1}/${selectDate.get('date')}`
+        // setApiEndpoint(ep);
+        console.log(ep);
         
         (async () => {
             try {
-                const response = await axios.post(apiEndpoint , {
+                const response = await axios.post(ep , {
                     _id: userID
                 });
-                console.log(response.data);
-                console.log(response.data.resultByDay);
+                // console.log(response.data);
+                // console.log(response.data.resultByDay);
                 // console.log(response.data.progressByDay);
                 if (Array.isArray(response.data)) {
                     setData(response.data.resultByDay);
@@ -61,14 +71,15 @@ export default function Jurnal() {
                     // setProgress(Object.values(response.data.progressByDay));
                 }
                 setProgress(response.data.progressByDay)
-                console.log(progress)
+                // console.log(progress)
+                // console.log(selectDate);
                 setLoading(false);
             } catch (error) {
                 console.error(error);
                 setLoading(false);
             }
           })()
-    }, [today, loading, selectDate] );
+    }, [selectDate] );
 
     return (
     <div>
@@ -88,7 +99,8 @@ export default function Jurnal() {
                         />
                         <h1 className="cursor-pointer hover:scale-105 transition-all"
                             onClick={() => {
-                                setToday(currentDate);
+                                setToday(currentDate)
+                                setSelectDate(currentDate);
                             }}
                         >
                             Today
@@ -168,28 +180,16 @@ export default function Jurnal() {
                         Add
                     </div>
                 </button>
-                <div className="h-full w-full flex-cols mt-3">
+                <div className="overflow-y-scroll w-full h-56 flex-cols mt-3">
                     <div className="space-y-4">
-                        <div className="h-16 bg-white rounded-lg flex">
-                            <input type="checkbox" value={status} onChange={() => handleChange("status")} className="ml-3 accent-yellow"/> 
-                            <div className="items-center flex-col ml-3 mt-2 justify-between">
-                                <div className="font-medium">
-                                    Tugas Integrasi Aplikasi dan Informasi
-                                </div>
-                                <div>
-                                    Pembuatan Integrasi Sistem Akademik
-                                </div>
-                            </div>
-                        </div>
-                        <TaskCard title="Membuat Sheer Plan" description="Persiapan tugas besar"/>
                         {loading ? (
                                 <p>Loading data...</p>
                             ) : data.length > 0 ? (
-                                data.map((item, index) => (
+                                data.map((data) => (
                                 <TaskCard
-                                    key={index}
-                                    title={item.title}
-                                    description={item.description}
+                                    key={data._id}
+                                    title={data.title}
+                                    description={data.description}
                                 />
                                 ))
                             ) : (
