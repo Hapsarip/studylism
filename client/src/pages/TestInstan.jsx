@@ -65,14 +65,16 @@ function TestInstan() {
     <div>
       <Navbar></Navbar>
       <main>
-        <div className="flex pt-60 space-x-3"></div>
-
-        <div className="flex-col space-y-10 my-[100px] ml-[300px] font-medium text-xl bg-yellow h-[250px] w-[1800px] px-5 py-5 rounded-lg">
+        <div className="flex pt-[80px] space-x-3"></div>
+        <div className="flex justify-center ml-[100px] font-semibold text-center text-3xl mt-[40px]">
+          Test Instan
+        </div>
+        <div className="flex-col space-y-1 my-[50px] ml-[400px] font-regular text-xl bg-yellow h-[150px] w-[800px] px-5 py-10 mt-[40px] rounded-lg">
           <div>
             <textarea
-              className="text-2xl text-center bg-lightyellow w-full h-[40px] px-5 py-1"
+              className="text-2xl text-center bg-lightyellow w-full h-[80px] px-5 py-1"
               rows="10"
-              placeholder="Write your feelings here..."
+              placeholder="Tulis kebiasaan belajarmu di dini (dalam bahasa inggris)"
               onChange={(event) => setStory(event.target.value)}
             ></textarea>
           </div>
@@ -80,19 +82,19 @@ function TestInstan() {
         <div>
           <button
             onClick={() => getLearningStyle()}
-            className="flex-col bg-black ml-[950px] rounded-lg w-[200px] h-[40px] text-2xl text-white  h-[16px] px-60 py-1"
+            className="flex-col bg-yellow hover:bg-[#D99D04] ml-[700px] rounded-lg w-[200px] h-[40px] text-2xl text-white  h-[16px] px-20 py-1"
           >
             Test
           </button>
         </div>
-        <div className="flex-col space-y-10 mt-20 my-[100px] ml-[300px] font-medium text-xl bg-blue h-[200px] w-[1800px] px-5 py-5 rounded-lg">
+        <div className="flex-col space-y-3 mt-10 my-[50px] ml-[400px] font-regular text-xl text-center bg-blue h-[150px] w-[800px] px-5 py-2 rounded-lg">
           <div>
-            <p className="text-4xl text-center text-white  h-[16px] py-1">
-              Result
+            <p className="text-2xl text-center text-white  h-[30px] py-1">
+              Hasil
             </p>
           </div>
           <div className="flex space-x-10 px-5">
-            <div className="flex bg-lightblue rounded-lg w-[3000px] h-[100px]">
+            <div className="flex bg-lightblue rounded-lg w-[3000px] h-[80px]">
               <p className="text-2xl text-center  h-[16px] px-5 py-1">
                 {result}
               </p>
