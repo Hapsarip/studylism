@@ -83,7 +83,7 @@ export default function IntroTest() {
         }
       
         // check if the max key is ""
-        if (maxKey === "undefined") {
+        if (maxKey === "undefined" || maxKey === "") {
           // return the second max key
           return secondMaxKey;
         } else {
@@ -140,10 +140,11 @@ export default function IntroTest() {
                     learningStyle: style
                 })
             console.log(res.data.message);
+            localStorage.setItem("learningStyle", style);
             console.log("submit trus dapet style: " ,style);
             // toast(res.data.message);
-            // navigate("/login")
-            
+            //navigate("/rekomendasi");
+
         } catch (err) {
             console.error(err.response.data.message);
             // toast.error(err.response.data.message)
@@ -790,24 +791,10 @@ export default function IntroTest() {
                 </div>         
             </div>
             <div className='flex flex-col items-center my-5'>
-                <button type="submit" className="bg-yellow w-[120px] px-3 py-2 rounded-xl font-muli text-lg" >
-                    Selesai Test
-                </button>
+                    <button type="submit" className="bg-yellow w-[120px] px-3 py-2 rounded-xl font-muli text-lg" >
+                        <a className='h-full w-full' href="/rekomendasi">Selesai Test   </a> 
+                    </button>
             </div>
-            {frequency && (
-        <div>
-          <p>The frequency of each value is:</p>
-          <ul>
-            {Object.keys(frequency).map((key) => (
-              <li key={key}>
-                {key}: {frequency[key]}
-              </li>
-            ))}
-          </ul>
-          <p>The maxKey is:<span>{maxKey}</span></p>
-          <p>The learning style is:<span>{learningStyle}</span></p>
-        </div>
-      )}
             </form>
         </div>
         </div>
