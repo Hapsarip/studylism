@@ -83,7 +83,7 @@ export default function IntroTest() {
         }
       
         // check if the max key is ""
-        if (maxKey === "undefined") {
+        if (maxKey === "undefined" || maxKey === "") {
           // return the second max key
           return secondMaxKey;
         } else {
@@ -140,7 +140,7 @@ export default function IntroTest() {
                     learningStyle: style
                 })
             console.log(res.data.message);
-            console.log("submit trus dapet style: " ,style);
+            console.log("submit trus dapet style: ", style);
             // toast(res.data.message);
             // navigate("/login")
             

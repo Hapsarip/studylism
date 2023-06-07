@@ -62,7 +62,7 @@ function Dashboard() {
   return (
     <div className="items-center">
       <Navbar />
-      <Chat />
+      {/* <Chat /> */}
       <div className="flex pt-20 items-center pl-40">
         <div className="text-2xl flex-col space-y-10 my-30 pl-20 font-medium h-60 w-3/5 px-5 py-5 rounded-lg">
           <p className="text-2xl text-left h-[16px] py-1">Welcome, {Name}</p>
