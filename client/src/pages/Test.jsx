@@ -3,14 +3,8 @@ import Navbar from '../component/navbar';
 
 export default function IntroTest() {
     const [selectedValue, setSelectedValue] = useState("");
-    const [frequency, setFrequency] = useState(null); // state variable to store the frequency object
-    const [maxKey, setMaxKey] = useState(null);
-    // Declare a state variable for the count of each value
-    const [count, setCount] = useState({
-        Auditory: 0,
-        Visual: 0,
-        Kinesthetic: 0
-    });
+    const [frequency, setFrequency] = useState({});
+    const [maxKey, setMaxKey] = useState("");
 
     // Define an onChange handler function
     function handleChange(e) {
@@ -83,14 +77,14 @@ export default function IntroTest() {
         }
       
         // check if the max key is ""
-        if (maxKey === "") {
+        if (maxKey === "undefined") {
           // return the second max key
           return secondMaxKey;
         } else {
           // return the max key
           return maxKey;
         }
-      }
+    }
 
     function handleSubmit(event) {
         // function to handle the submit event of the form
@@ -105,10 +99,11 @@ export default function IntroTest() {
           array.push(value); // add the value to the array
         }
         console.log(array);
-        // var frequency =  // get the frequency object of the array
-        setFrequency(countFrequency(array)); // update the state variable with the frequency object 
-        console.log(frequency);
-        setMaxKey(findMaxKey(frequency));
+        var frequencyObject = countFrequency(array); // get the frequency object of the array
+        var frequencyArray = Object.entries(frequencyObject); // convert the frequency object to an array of arrays
+        setFrequency(frequencyArray); // update the state variable with the frequency array 
+        console.log(frequencyArray);
+        setMaxKey(findMaxKey(frequencyArray)); // call findMaxKey with frequencyArray instead of frequencyObject
         console.log(maxKey);
     }
     
@@ -765,6 +760,7 @@ export default function IntroTest() {
               </li>
             ))}
           </ul>
+          <p>The maxKey is:<span>{maxKey}</span></p>
         </div>
       )}
             </form>
