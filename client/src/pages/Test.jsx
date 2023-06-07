@@ -9,8 +9,10 @@ export default function IntroTest() {
     const [userID, setUserID] = useState("");
     const [learningStyle, setLearningStyle] = useState("");
 
+    const useridbaru = localStorage.getItem("userID") 
+
     useEffect(() => {
-        setUserID(localStorage.getItem("userID"));    
+        // setUserID(localStorage.getItem("userID"));    
     }, []);
     // Define an onChange handler function
     function handleChange(e) {
@@ -131,8 +133,10 @@ export default function IntroTest() {
               break;
             default:
           }
-        console.log(learningStyle);
-
+        console.log("learningStyle: " + learningStyle);
+        console.log("style: " + style);
+        localStorage.setItem("learningStyle", style);
+        console.log("submit trus dapet style: " ,style);
         try{
             const res = await axios.put("http://localhost:3001/auth/learningStyle",  
                 {
@@ -140,9 +144,6 @@ export default function IntroTest() {
                     learningStyle: style
                 })
             console.log(res.data.message);
-            localStorage.setItem("learningStyle", style);
-            console.log("submit trus dapet style: " ,style);
-
             // toast(res.data.message);
             //navigate("/rekomendasi");
 
@@ -788,12 +789,16 @@ export default function IntroTest() {
                             </div>
                             <label className='mx-4'>Sangat Setuju</label>
                         </div>
+  
                     </div>
                 </div>         
             </div>
             <div className='flex flex-col items-center my-5'>
-                    <button type="submit" className="bg-yellow w-[120px] px-3 py-2 rounded-xl font-muli text-lg" >
-                        <a className='h-full w-full' href="/rekomendasi">Selesai Test   </a> 
+                    <button type="submit" className="bg-yellow w-[120px] px-3 py-2 rounded-xl font-muli text-lg focus:bg-[#D99D04]" >
+                        <a className='h-full w-full'>Selesai Test   </a> 
+                    </button>
+                    <button type="submit" className="bg-yellow w-[120px] px-3 mt-5 py-2 rounded-xl font-muli text-lg" >
+                        <a href="/rekomendasi" className='h-full w-full'>Liat Hasil  </a> 
                     </button>
             </div>
             </form>
